@@ -4,6 +4,13 @@ XL = sys.argv[1]
 def py_key(s):
     return re.sub(r"[\s'’\-]", '', unicodedata.normalize('NFC', s)).lower()
 R = json.load(open(f'{XL}/out/readings.out.json', encoding='utf-8'))
+try:
+    for c in json.load(open(f'{XL}/out/readings.chk.json', encoding='utf-8')):
+        k = int(c.get('index', -1))
+        if 0 <= k < len(R):
+            R[k] = {**R[k], **{f: v for f, v in c.items() if f not in ('index', 'note')}}
+except Exception:
+    pass
 token_fix, dict_fix, gloss = {}, {}, []
 stats = collections.Counter()
 A = json.load(open(f'{XL}/aligned.json', encoding='utf-8'))
