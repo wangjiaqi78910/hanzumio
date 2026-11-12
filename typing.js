@@ -282,6 +282,20 @@
   // ---------- 状态 ----------
   const saved = load();
   const settings = sanitize(saved.settings || {});
+  // URL 参数可以预设（嵌入 App 的 WebView 时用）：?level=2&ui=ko&mean=ko&mode=py&hint=cards&tones=req&autoplay=0
+  (() => {
+    const q = new URLSearchParams(window.location.search);
+    const over = {};
+    if (q.has('level')) over.level = q.get('level');
+    if (q.has('ui')) over.ui = q.get('ui');
+    if (q.has('mean')) over.mean = q.get('mean');
+    if (q.has('mode')) over.mode = q.get('mode');
+    if (q.has('hint')) over.hint = q.get('hint');
+    if (q.has('tones')) over.toneReq = q.get('tones') === 'req';
+    if (q.has('autoplay')) over.autoPlay = !['0', 'off', 'false'].includes(q.get('autoplay'));
+    if (q.has('shuffle')) over.shuffle = ['1', 'on', 'true'].includes(q.get('shuffle'));
+    if (Object.keys(over).length) Object.assign(settings, sanitize({ ...settings, ...over }));
+  })();
   const results = saved.results && typeof saved.results === 'object' ? saved.results : {};
   const positions = saved.pos && typeof saved.pos === 'object' ? saved.pos : {};
   const seeds = saved.seeds && typeof saved.seeds === 'object' ? saved.seeds : {};
