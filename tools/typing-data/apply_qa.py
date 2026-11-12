@@ -34,7 +34,9 @@ for path in sorted(glob.glob(f'{Q}/out/qa-hsk*.json')):
         kind = f.get('kind')
         key = f"{f['key']}:{f.get('i', 0)}"
         if kind in ('pinyin', 'segmentation', 'chinese'):
-            if not isinstance(fixv, str):
+            if not isinstance(fixv, str) and isinstance(f.get('fix'), str) and ' ' in f['fix']:
+                fixv = f['fix']          # 质疑者给的是词条，复核员给的是整行拼音：用整行的
+            if not isinstance(fixv, str) or ' ' not in fixv.strip():
                 stats['bad-fix-format'] += 1
                 continue
             rec = {'key': key, 'py': fixv}

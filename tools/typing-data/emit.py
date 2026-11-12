@@ -222,6 +222,23 @@ def disp_syl(hz, syls, initial=False):
 def join_py(syls):
     return ''.join(("'" + s) if k and re.match(r'[aeoāáǎàēéěèōóǒò]', s, re.I) else s for k, s in enumerate(syls))
 
+# ---------------- 译文里的括号注释 ----------------
+# 韩文译文常夹着原汉字或汉字词的韩文读音/同义词：카드(筹码)、조심(류신)、관심(흥미)。题面里去掉，词卡释义只去掉带汉字的
+HAN_PAREN = re.compile(r'\s*[（(][^()（）]*[\u4e00-\u9fff][^()（）]*[)）]')
+GLUED_HANGUL = re.compile(r'(?<=[가-힣"”’\'])[（(][가-힣\s,/·]{1,10}[)）]')
+def clean_line(text, lang):
+    if not text:
+        return text
+    t = HAN_PAREN.sub('', text)
+    if lang == 'ko':
+        t = GLUED_HANGUL.sub('', t)
+    t = re.sub(r'\s{2,}', ' ', t).replace(' ,', ',').replace(' .', '.').strip()
+    if t != text:
+        report['paren-cleaned:' + lang] += 1
+    return t
+def clean_gloss(text):
+    return HAN_PAREN.sub('', text or '').strip()
+
 # ---------------- build per level ----------------
 os.makedirs(f'{REPO}/typing-data', exist_ok=True)
 summary = {}
@@ -261,8 +278,8 @@ for lv in LEVELS:
                     continue
                 entries[hz][py_key(e['py'])] = e
             fix = tr_fix.get(it['id'], {}).get(li, {})
-            en = fix.get('en') or l.get('en', '')
-            ko = fix.get('ko') or l.get('ko', '')
+            en = clean_line(fix.get('en') or l.get('en', ''), 'en')
+            ko = clean_line(fix.get('ko') or l.get('ko', ''), 'ko')
             if not en and not ko:
                 report['line-no-translation'] += 1
             lines.append([' '.join(toks), ' '.join(pys), en, ko])
@@ -274,12 +291,12 @@ for lv in LEVELS:
         vals = list(variants.values())
         for e in vals:
             py = join_py(disp_syl(hz, re.split(r"[\s'’\-]+", unicodedata.normalize('NFC', e['py']).strip()))) if e['py'] else ''
-            rec = [py, e['_pos'], (e.get('en') or '').strip(), (e.get('ko') or '').strip()]
+            rec = [py, e['_pos'], clean_gloss(e.get('en')), clean_gloss(e.get('ko'))]
             if len(vals) > 1:
                 words[hz + '|' + py_key(e['py'])] = rec
         first = vals[0]
         words[hz] = [join_py(disp_syl(hz, re.split(r"[\s'’\-]+", unicodedata.normalize('NFC', first['py']).strip()))) if first['py'] else '',
-                     first['_pos'], (first.get('en') or '').strip(), (first.get('ko') or '').strip()]
+                     first['_pos'], clean_gloss(first.get('en')), clean_gloss(first.get('ko'))]
     data = {'level': lv, 'words': words, 'items': out_items}
     js = ("window.HANZUMIO_TYPING_LEVELS=window.HANZUMIO_TYPING_LEVELS||{};"
           f"window.HANZUMIO_TYPING_LEVELS[{json.dumps(lv)}]=" + json.dumps(data, ensure_ascii=False, separators=(',', ':')) + ";\n")

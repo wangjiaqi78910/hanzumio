@@ -260,6 +260,7 @@ def auto_pinyin(zh):
     return ' '.join(toks)
 
 # 源拼音把「为什么」写成 wèi shénme 时会拆成两个词：拼起来等于本题词、或是词表里 ≥3 字的词，就合并
+MERGE2 = {'好的', '是的', '没错', '真的', '可以', '谢谢', '不用', '没有'}
 def merge_tokens(words, head):
     out, i = [], 0
     while i < len(words):
@@ -268,7 +269,7 @@ def merge_tokens(words, head):
             for n in (3, 2):
                 if i + n <= len(words) and all(len(w) == 2 for w in words[i:i + n]):
                     hz = ''.join(w[0] for w in words[i:i + n])
-                    if hz == head or (len(hz) >= 3 and hz in by_hz):
+                    if hz == head or (len(hz) >= 3 and hz in by_hz) or hz in MERGE2:
                         syls = [s for w in words[i:i + n] for s in w[1]]
                         out.append([hz, syls])
                         stats['repair:merge-tokens'] += 1
