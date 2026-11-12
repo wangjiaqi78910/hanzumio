@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<title>汉字打字 · Hanzumio</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="typing.css">
+</head>
+<body class="typing">
+<header class="tbar">
+<div class="tbar-in">
+<a class="back" href="index.html">← Hanzumio</a>
+<h1 data-i18n="title">汉字打字</h1>
+<div class="seg" id="modeSeg" role="group" data-i18n-aria="mode">
+<button type="button" data-mode="py" data-i18n="modePy">拼音</button>
+<button type="button" data-mode="hz" data-i18n="modeHz">汉字</button>
+</div>
+<div class="seg" id="uiSeg" role="group" aria-label="语言 · Language · 언어">
+<button type="button" data-ui="zh" lang="zh-Hans">中</button>
+<button type="button" data-ui="en" lang="en">EN</button>
+<button type="button" data-ui="ko" lang="ko">한</button>
+</div>
+<button type="button" class="btn ghost" id="openSettings"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="2"/></svg><span data-i18n="settings">设置</span></button>
+</div>
+<div class="bar" aria-hidden="true"><i id="barFill"></i></div>
+</header>
+<main class="ty">
+<div class="ty-meta"><span id="levelTag" class="tag"></span><span id="count"></span><b id="pct"></b></div>
+<p id="prevLine" class="prev" hidden></p>
+<section id="quiz" class="quiz">
+<p id="prompt" class="prompt"></p>
+<div id="slots" class="slots" role="group" aria-describedby="prompt"></div>
+<p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+<div id="cards" class="cards" hidden></div>
+</section>
+<section id="done" class="done" hidden>
+<h2 id="doneTitle" tabindex="-1"></h2>
+<p id="doneSum"></p>
+<div class="done-actions">
+<button type="button" class="btn primary" id="btnRestart" data-i18n="restart">从头再来</button>
+<button type="button" class="btn" id="btnPracticeWrong" data-i18n="practiceWrong">练错题</button>
+<button type="button" class="btn" id="btnShowAll" data-i18n="showAll">练全部</button>
+</div>
+</section>
+<div class="stats" id="stats">
+<span class="stat ok"><span data-i18n="statOk">已答对</span><b id="statOkN">0</b></span>
+<span class="stat bad"><span data-i18n="statBad">已答错</span><b id="statBadN">0</b></span>
+<span class="stat"><span data-i18n="statAcc">正确率</span><b id="statAccN">–</b></span>
+</div>
+<div class="actions" id="actions">
+<button type="button" class="btn" id="btnPrev"><span data-i18n="prevQ">上一题</span></button>
+<button type="button" class="btn" id="btnReveal"><span data-i18n="reveal">看答案</span><kbd>Esc</kbd></button>
+<button type="button" class="btn" id="btnRetry" hidden><span data-i18n="retry">再练一遍</span></button>
+<button type="button" class="btn primary" id="btnSubmit"><span data-i18n="submit">提交</span><kbd>Enter</kbd></button>
+<button type="button" class="btn primary" id="btnNext" hidden><span data-i18n="next">下一题</span><kbd>Enter</kbd></button>
+<button type="button" class="btn" id="btnSkip"><span data-i18n="skip">跳过</span></button>
+</div>
+<details class="help">
+<summary data-i18n="helpTitle">怎么输入</summary>
+<div id="helpBody"></div>
+</details>
+</main>
+<footer><p data-i18n="note">练习记录只保存在这个浏览器里，不会上传。</p><p>汉字神兽 Hanzumio · <a href="mailto:wangjiaqi@ewhain.net">wangjiaqi@ewhain.net</a></p></footer>
+
+<dialog id="settings" aria-labelledby="setTitle">
+<form method="dialog" id="setForm">
+<h2 id="setTitle" data-i18n="settings">设置</h2>
+<fieldset>
+<legend data-i18n="level">级别</legend>
+<label><input type="radio" name="level" value="all"> <span data-i18n="all">全部</span></label>
+<label><input type="radio" name="level" value="1"> HSK 1</label>
+<label><input type="radio" name="level" value="2"> HSK 2</label>
+<label><input type="radio" name="level" value="3"> HSK 3</label>
+</fieldset>
+<label class="row"><input type="checkbox" name="onlyWrong"> <span data-i18n="onlyWrong">只练错题</span></label>
+<fieldset>
+<legend data-i18n="tones">声调（拼音模式）</legend>
+<label><input type="radio" name="tone" value="req"> <span data-i18n="toneReq">必须写</span></label>
+<label><input type="radio" name="tone" value="opt"> <span data-i18n="toneOpt">可以不写</span></label>
+</fieldset>
+<label class="row"><input type="checkbox" name="hint"> <span data-i18n="hint">在空格上方显示提示</span></label>
+<p class="note" data-i18n="hintNote">拼音模式显示汉字，汉字模式显示拼音。</p>
+<fieldset>
+<legend data-i18n="meaning">释义语言</legend>
+<label><input type="radio" name="mean" value="en"> <span lang="en">English</span></label>
+<label><input type="radio" name="mean" value="ko"> <span lang="ko">한국어</span></label>
+</fieldset>
+<div class="dlg-actions">
+<button type="button" class="btn danger" id="btnReset" data-i18n="reset">清空记录</button>
+<button type="submit" class="btn primary" data-i18n="close">完成</button>
+</div>
+</form>
+</dialog>
+
+<script src="typing-data.js"></script>
+<script src="typing.js"></script>
+</body>
+</html>
