@@ -16,6 +16,8 @@ audio/hsk6/7b0b2979-0.mp3	我们的努力白白浪费了。
 audio/hsk6/7b0b2979-1.mp3	太可惜了，真不该这样。
 audio/hsk6/02476f78-0.mp3	我打算明天去拜访他。
 audio/hsk6/02476f78-1.mp3	记得带份小礼物。
+audio/hsk6/c0040a53-0.mp3	货架上的商品摆放得很整齐。
+audio/hsk6/c0040a53-1.mp3	是的，看起来很舒服。
 audio/hsk6/73da500f-0.mp3	利润增长了两个百分点。
 audio/hsk6/73da500f-1.mp3	这是一个好兆头。
 audio/hsk6/945cfb5c-0.mp3	这家百货公司的规模很大。
@@ -488,6 +490,8 @@ audio/hsk6/0fda8bf6-0.mp3	大伙儿都准备好了吗？
 audio/hsk6/0fda8bf6-1.mp3	都准备好了，出发吧。
 audio/hsk6/06a46700-0.mp3	你打算在这里待几天？
 audio/hsk6/06a46700-1.mp3	待一个星期。
+audio/hsk6/0c8aa2a6-0.mp3	他怎么对着窗外发呆？
+audio/hsk6/0c8aa2a6-1.mp3	可能在想事情吧。
 audio/hsk6/b186ad33-0.mp3	为了成功，他付出了巨大代价。
 audio/hsk6/b186ad33-1.mp3	确实不容易。
 audio/hsk6/33ba3ed3-0.mp3	你的购房贷款批了吗？
@@ -532,6 +536,8 @@ audio/hsk6/f0c0180e-0.mp3	这项新技术是在去年诞生的。
 audio/hsk6/f0c0180e-1.mp3	它将改变我们的生活。
 audio/hsk6/c8638ac3-0.mp3	对不起，路上堵车耽误了点时间。
 audio/hsk6/c8638ac3-1.mp3	没关系，会议还没开始。
+audio/hsk6/6ef85ed3-0.mp3	我们都很担忧他的健康状况。
+audio/hsk6/6ef85ed3-1.mp3	他需要好好休息一下。
 audio/hsk6/6ad77164-0.mp3	那个小岛的风景非常迷人。
 audio/hsk6/6ad77164-1.mp3	我一直想去那里旅游。
 audio/hsk6/0eaaa972-0.mp3	听说那家工厂由于经营不善倒闭了。
@@ -602,6 +608,8 @@ audio/hsk6/b1dce655-0.mp3	你想去哪个地方旅游？
 audio/hsk6/b1dce655-1.mp3	我想去西藏看看。
 audio/hsk6/3d4f1821-0.mp3	我们要坚决抵抗侵略者。
 audio/hsk6/3d4f1821-1.mp3	保卫和平是我们的责任。
+audio/hsk6/04b9477d-0.mp3	山顶的风景真是美不胜收。
+audio/hsk6/04b9477d-1.mp3	爬上来的辛苦都值得了。
 audio/hsk6/21690e41-0.mp3	请确认一下这份订单的信息。
 audio/hsk6/21690e41-1.mp3	好的，我这就核对一遍。
 audio/hsk6/751a8f4e-0.mp3	听说他们上个礼拜订婚了。
@@ -648,6 +656,8 @@ audio/hsk6/f41cd7ee-0.mp3	请帮我把这盆汤端到桌上。
 audio/hsk6/f41cd7ee-1.mp3	好的，小心烫。
 audio/hsk6/bb435d9e-0.mp3	公司目前资金严重短缺。
 audio/hsk6/bb435d9e-1.mp3	那我们得赶紧想办法筹款。
+audio/hsk6/877dc2bf-0.mp3	这个图案是完全对称的。
+audio/hsk6/877dc2bf-1.mp3	这种平衡感很舒服。
 audio/hsk6/c86919bd-0.mp3	两个项目需要进行技术对接。
 audio/hsk6/c86919bd-1.mp3	好的，我这就联系对方工程师。
 audio/hsk6/435d0c27-0.mp3	他们在进行一场激烈的篮球对抗赛。
@@ -694,6 +704,8 @@ audio/hsk6/42b331b3-0.mp3	别为这点小事发愁。
 audio/hsk6/42b331b3-1.mp3	好的，我会想开点。
 audio/hsk6/108a1729-0.mp3	这座水利站能发电吗？
 audio/hsk6/108a1729-1.mp3	能，供应整个村庄。
+audio/hsk6/cd18a2fa-0.mp3	这是一个法定节假日。
+audio/hsk6/cd18a2fa-1.mp3	那我们可以休息了。
 audio/hsk6/4a315cca-0.mp3	谁发动了这次起义？
 audio/hsk6/4a315cca-1.mp3	历史书上有记载。
 audio/hsk6/68b88033-0.mp3	公司什么时候发放奖金？
@@ -766,6 +778,8 @@ audio/hsk6/bedc44bd-0.mp3	今天的风力达到了五级。
 audio/hsk6/bedc44bd-1.mp3	外面风确实挺大的。
 audio/hsk6/e9bff359-0.mp3	我们要明确各自的分工。
 audio/hsk6/e9bff359-1.mp3	好的，效率会更高。
+audio/hsk6/2f49eeac-0.mp3	今年又是一个丰收年。
+audio/hsk6/2f49eeac-1.mp3	农民们都开心极了。
 audio/hsk6/4ff8741c-0.mp3	他把青春都奉献给了教育事业。
 audio/hsk6/4ff8741c-1.mp3	这种精神很感人。
 audio/hsk6/96729044-0.mp3	经历过风雨吗？
@@ -868,6 +882,8 @@ audio/hsk6/276dfdb2-0.mp3	你去过青藏高原吗？
 audio/hsk6/276dfdb2-1.mp3	还没有，一直很向往。
 audio/hsk6/12b7daeb-0.mp3	演讲的稿子准备好了吗？
 audio/hsk6/12b7daeb-1.mp3	还在修改。
+audio/hsk6/afe693ee-0.mp3	农民正在割麦子。
+audio/hsk6/afe693ee-1.mp3	今年又是大丰收。
 audio/hsk6/9310418f-0.mp3	他住在隔壁吗？
 audio/hsk6/9310418f-1.mp3	对，他是我的新邻居。
 audio/hsk6/2b107b01-0.mp3	她正在台上歌唱。
@@ -1006,6 +1022,8 @@ audio/hsk6/6cba398b-0.mp3	古人留下了很多智慧。
 audio/hsk6/6cba398b-1.mp3	值得我们去挖掘。
 audio/hsk6/bb23c6fa-0.mp3	今天的股市行情如何？
 audio/hsk6/bb23c6fa-1.mp3	全线飘红。
+audio/hsk6/cf9bc0dc-0.mp3	冰是水的固体形态。
+audio/hsk6/cf9bc0dc-1.mp3	物理知识很有趣。
 audio/hsk6/9797d312-0.mp3	小狗在啃骨头。
 audio/hsk6/9797d312-1.mp3	别打扰它。
 audio/hsk6/e466d434-0.mp3	他是这家公司的法律顾问。
@@ -1594,6 +1612,8 @@ audio/hsk6/1124f586-0.mp3	你喜欢这种款式吗？
 audio/hsk6/1124f586-1.mp3	挺喜欢的，很时髦。
 audio/hsk6/a0d51010-0.mp3	他的表演太夸张了。
 audio/hsk6/a0d51010-1.mp3	有点演戏的成分。
+audio/hsk6/e3a93917-0.mp3	商店今年亏损了吗？
+audio/hsk6/e3a93917-1.mp3	有点儿，生意不太好。
 audio/hsk6/21ee171d-0.mp3	这个问题一直困扰着我。
 audio/hsk6/21ee171d-1.mp3	让我们一起来想办法。
 audio/hsk6/c2181216-0.mp3	公司要扩展业务吗？
@@ -2100,6 +2120,8 @@ audio/hsk6/1442f16d-0.mp3	证件带齐全了吗？
 audio/hsk6/1442f16d-1.mp3	都在包里。
 audio/hsk6/74d49b5f-0.mp3	这件事给你什么启示？
 audio/hsk6/74d49b5f-1.mp3	坚持就是胜利。
+audio/hsk6/0af83186-0.mp3	看到那则寻物启事了吗？
+audio/hsk6/0af83186-1.mp3	看到了，在校门口。
 audio/hsk6/39c93626-0.mp3	氧气是一种气体吗？
 audio/hsk6/39c93626-1.mp3	是的，维持生命必需。
 audio/hsk6/a3fd49a3-0.mp3	遇到困难可以求助。
@@ -2204,8 +2226,14 @@ audio/hsk6/6d700370-0.mp3	医生们正在日夜抢救病人。
 audio/hsk6/6d700370-1.mp3	他们的精神真令人感动。
 audio/hsk6/dfd4b095-0.mp3	环境问题日益严重。
 audio/hsk6/dfd4b095-1.mp3	我们必须采取行动了。
+audio/hsk6/1773c9ed-0.mp3	这部作品融合了多种文化。
+audio/hsk6/1773c9ed-1.mp3	听起来很有创意。
 audio/hsk6/0134b10c-0.mp3	春天来了，积雪开始融化。
 audio/hsk6/0134b10c-1.mp3	万物都复苏了。
+audio/hsk6/1fcf3092-0.mp3	这个移动硬盘的容量多大？
+audio/hsk6/1fcf3092-1.mp3	一共有两个T。
+audio/hsk6/b9c978a9-0.mp3	他很快就融入了新集体。
+audio/hsk6/b9c978a9-1.mp3	因为他性格很开朗。
 audio/hsk6/4a8e2bb1-0.mp3	这份荣誉属于整个团队。
 audio/hsk6/4a8e2bb1-1.mp3	大家的努力没白费。
 audio/hsk6/d0c0cfdd-0.mp3	这件毛衣摸起来很柔软。
@@ -2448,6 +2476,8 @@ audio/hsk6/a2fb90e4-0.mp3	你喜欢吃什么口味的薯片？
 audio/hsk6/a2fb90e4-1.mp3	我最喜欢原味的。
 audio/hsk6/a1f7f2ff-0.mp3	管道正在输送天然气吗？
 audio/hsk6/a1f7f2ff-1.mp3	是的，供应整个城市。
+audio/hsk6/83d76247-0.mp3	他的书写非常工整。
+audio/hsk6/83d76247-1.mp3	看起来像打印的一样。
 audio/hsk6/10810f5c-0.mp3	图书馆正在进行数字化。
 audio/hsk6/10810f5c-1.mp3	以后找书就更方便了。
 audio/hsk6/5c3aba9b-0.mp3	你的写文章思路很清晰。
@@ -2468,6 +2498,8 @@ audio/hsk6/517e20c5-0.mp3	这次考试你考得怎么样？
 audio/hsk6/517e20c5-1.mp3	算是发挥出了正常水平。
 audio/hsk6/791ed526-0.mp3	虽然很累，但我很开心。
 audio/hsk6/791ed526-1.mp3	看到成果就很满足了。
+audio/hsk6/0156eaae-0.mp3	爷爷今年多大岁数了？
+audio/hsk6/0156eaae-1.mp3	已经八十有五了。
 audio/hsk6/89fde577-0.mp3	岁月不饶人啊。
 audio/hsk6/89fde577-1.mp3	是啊，转眼我们就老了。
 audio/hsk6/679eceea-0.mp3	手机屏幕损坏了吗？
@@ -2504,6 +2536,8 @@ audio/hsk6/13964adc-0.mp3	我们要勇于探索未知世界。
 audio/hsk6/13964adc-1.mp3	科学就是这样进步的。
 audio/hsk6/66d70c95-0.mp3	让我们深入探讨一下这个问题。
 audio/hsk6/66d70c95-1.mp3	好的，我正有此意。
+audio/hsk6/8add4c3d-0.mp3	这种材料很有弹性。
+audio/hsk6/8add4c3d-1.mp3	用来做运动服非常合适。
 audio/hsk6/64174ec3-0.mp3	嫌疑人已经逃走了吗？
 audio/hsk6/64174ec3-1.mp3	警方正在全力追捕。
 audio/hsk6/a189ea6b-0.mp3	请从兜里掏出手机。
@@ -2688,6 +2722,8 @@ audio/hsk6/031bf34d-0.mp3	往后咱们多联系。
 audio/hsk6/031bf34d-1.mp3	没问题，常聚聚。
 audio/hsk6/f9ba522e-0.mp3	两家公司有业务往来吗？
 audio/hsk6/f9ba522e-1.mp3	合作很多年了。
+audio/hsk6/eea8c09e-0.mp3	今年比往年冷得多。
+audio/hsk6/eea8c09e-1.mp3	没错，雪下得也大。
 audio/hsk6/5b70b8ef-0.mp3	故事里的王子最后结婚了吗？
 audio/hsk6/5b70b8ef-1.mp3	和公主过上了幸福的生活。
 audio/hsk6/2949b5a2-0.mp3	他的意志力非常顽强。
@@ -2752,6 +2788,8 @@ audio/hsk6/01447bd6-0.mp3	博物馆里有很多珍贵文物。
 audio/hsk6/01447bd6-1.mp3	进去参观要保持安静。
 audio/hsk6/4af14243-0.mp3	查阅这些历史文献很有用。
 audio/hsk6/4af14243-1.mp3	能帮我了解当时的背景。
+audio/hsk6/6da95a9f-0.mp3	你喜欢看文艺节目吗？
+audio/hsk6/6da95a9f-1.mp3	挺喜欢的，很有品味。
 audio/hsk6/422ffe73-0.mp3	别误了火车出发的时间。
 audio/hsk6/422ffe73-1.mp3	我这就出门，来得及。
 audio/hsk6/aaf9570f-0.mp3	这只乌龟多少岁了？
@@ -2768,6 +2806,8 @@ audio/hsk6/8469bc4b-0.mp3	那个不明物体是什么？
 audio/hsk6/8469bc4b-1.mp3	看起来像个风筝。
 audio/hsk6/fa7bb70a-0.mp3	他会赢吗？
 audio/hsk6/fa7bb70a-1.mp3	这次冠军无疑是他的。
+audio/hsk6/2dd81073-0.mp3	别突然拍我，吓死我了。
+audio/hsk6/2dd81073-1.mp3	抱歉，我想打个招呼。
 audio/hsk6/780a8075-0.mp3	他的汉语进步真快。
 audio/hsk6/780a8075-1.mp3	因为他在口语上下了苦功夫。
 audio/hsk6/104fea3c-0.mp3	你下单了吗？
@@ -2792,6 +2832,8 @@ audio/hsk6/0f15c19f-0.mp3	这两个方案相差远吗？
 audio/hsk6/0f15c19f-1.mp3	基本没什么区别。
 audio/hsk6/e89b2cb3-0.mp3	披萨里要加香肠吗？
 audio/hsk6/e89b2cb3-1.mp3	多加一点儿，我爱吃。
+audio/hsk6/6e423a6a-0.mp3	相传这里住着一位神仙。
+audio/hsk6/6e423a6a-1.mp3	听起来很有神秘感。
 audio/hsk6/6e9fd5cf-0.mp3	两个角的度数相等吗？
 audio/hsk6/6e9fd5cf-1.mp3	是的，它们是对顶角。
 audio/hsk6/0198fee9-0.mp3	这条项链多少钱？
@@ -2872,6 +2914,8 @@ audio/hsk6/c9503db0-0.mp3	弄丢了心爱的手表。
 audio/hsk6/c9503db0-1.mp3	别难过，再买一个。
 audio/hsk6/7a594ee2-0.mp3	这是藏在心底的话。
 audio/hsk6/7a594ee2-1.mp3	很高兴你能跟我分享。
+audio/hsk6/7bcc19a9-0.mp3	你的手机是什么型号？
+audio/hsk6/7bcc19a9-1.mp3	是去年发布的Ultra。
 audio/hsk6/d7b8e194-0.mp3	这台电脑性价比高吗？
 audio/hsk6/d7b8e194-1.mp3	性能很好，价格也公道。
 audio/hsk6/53f94c37-0.mp3	这款车的性能如何？
@@ -2910,6 +2954,8 @@ audio/hsk6/26bc9caa-0.mp3	我觉得胸口有点闷。
 audio/hsk6/26bc9caa-1.mp3	可能是最近压力太大了。
 audio/hsk6/49503967-0.mp3	你喜欢中国戏曲吗？
 audio/hsk6/49503967-1.mp3	我很喜欢京剧。
+audio/hsk6/0707fde3-0.mp3	我们要吸取失败的教训。
+audio/hsk6/0707fde3-1.mp3	是的，不能在同一个地方跌倒。
 audio/hsk6/6976ebb2-0.mp3	听说你家有喜事了？
 audio/hsk6/6976ebb2-1.mp3	对，我姐姐下个月结婚。
 audio/hsk6/fdb13129-0.mp3	大家都洗漱好了吗？
@@ -2922,6 +2968,8 @@ audio/hsk6/f536db30-0.mp3	破损的文物能修复吗？
 audio/hsk6/f536db30-1.mp3	专家们正在全力以赴。
 audio/hsk6/2c763cc0-0.mp3	你的袖子怎么湿了？
 audio/hsk6/2c763cc0-1.mp3	刚才洗菜时不小心弄的。
+audio/hsk6/152c22eb-0.mp3	他的观察很细致。
+audio/hsk6/152c22eb-1.mp3	是的，连小细节都不放过。
 audio/hsk6/a7796145-0.mp3	比赛是为了选拔人才。
 audio/hsk6/a7796145-1.mp3	期待有优秀的选手出现。
 audio/hsk6/0b515159-0.mp3	你这学期选修了什么课？
@@ -3040,6 +3088,8 @@ audio/hsk6/8a75e9ef-0.mp3	坚持运动对身体有益处。
 audio/hsk6/8a75e9ef-1.mp3	是的，免疫力也会提高。
 audio/hsk6/54354d7a-0.mp3	他的身高是遗传父母吗？
 audio/hsk6/54354d7a-1.mp3	是的，他爸爸妈妈都很高。
+audio/hsk6/2e4901e5-0.mp3	这一带有很多餐厅。
+audio/hsk6/2e4901e5-1.mp3	我们可以去那边挑挑。
 audio/hsk6/eaf66656-0.mp3	我们一道走吧？
 audio/hsk6/eaf66656-1.mp3	好的，路上正好聊聊天。
 audio/hsk6/0690ad55-0.mp3	祝你这次旅程一帆风顺。
@@ -3070,6 +3120,8 @@ audio/hsk6/00ae0c38-0.mp3	这枚戒指是银的吗？
 audio/hsk6/00ae0c38-1.mp3	是的，纯银打造。
 audio/hsk6/c61c66a6-0.mp3	请在合同上印上公章。
 audio/hsk6/c61c66a6-1.mp3	好的，我这就去拿印章。
+audio/hsk6/3c06c152-0.mp3	他的话引发了深思。
+audio/hsk6/3c06c152-1.mp3	很有哲理的一席话。
 audio/hsk6/77c9ed59-0.mp3	因为堵车，他迟到了。
 audio/hsk6/77c9ed59-1.mp3	现在的交通确实成问题。
 audio/hsk6/88954701-0.mp3	他把秘密隐藏得很好。
@@ -3108,6 +3160,8 @@ audio/hsk6/242a679a-0.mp3	这里的衣食住行都很方便。
 audio/hsk6/242a679a-1.mp3	难怪这么多人想搬来住。
 audio/hsk6/d4c6142d-0.mp3	我们一同去郊游吧？
 audio/hsk6/d4c6142d-1.mp3	好主意，在哪儿集合？
+audio/hsk6/7f8c15a8-0.mp3	今年的收成比以往都要好。
+audio/hsk6/7f8c15a8-1.mp3	真是个丰收年。
 audio/hsk6/2f212e0f-0.mp3	他一向很守时。
 audio/hsk6/2f212e0f-1.mp3	确实，从没见他迟到过。
 audio/hsk6/c86cc91c-0.mp3	针对此事，政府采取了一系列措施。
@@ -3366,6 +3420,8 @@ audio/hsk6/eb416bba-0.mp3	这种游戏能开发儿童的智力。
 audio/hsk6/eb416bba-1.mp3	既有趣又有教育意义。
 audio/hsk6/eb5aa451-0.mp3	环境污染需要长期治理。
 audio/hsk6/eb5aa451-1.mp3	每个人都要为此出力。
+audio/hsk6/447953d0-0.mp3	这里的竹制品非常精致。
+audio/hsk6/447953d0-1.mp3	都是当地手工艺人做的。
 audio/hsk6/86ba9232-0.mp3	领导有什么新的指示吗？
 audio/hsk6/86ba9232-1.mp3	让我们尽快完成项目。
 audio/hsk6/57e6e3ea-0.mp3	我之所以迟到，是因为堵车。
@@ -3440,6 +3496,8 @@ audio/hsk6/1768dd1e-0.mp3	轻轻转动一下把手。
 audio/hsk6/1768dd1e-1.mp3	好的，门开了。
 audio/hsk6/c948267a-0.mp3	登山的装备带全了吗？
 audio/hsk6/c948267a-1.mp3	都检查过了，全在包里。
+audio/hsk6/778fbb1a-0.mp3	今年地里的庄稼长得好吗？
+audio/hsk6/778fbb1a-1.mp3	雨水充足，收成应该不错。
 audio/hsk6/45dbdc1c-0.mp3	视频格式需要转换吗？
 audio/hsk6/45dbdc1c-1.mp3	最好换成MP4格式。
 audio/hsk6/f15b25bb-0.mp3	请把这份文件转交给经理。
@@ -3452,6 +3510,8 @@ audio/hsk6/62ef26b6-0.mp3	这家店面准备转让吗？
 audio/hsk6/62ef26b6-1.mp3	房东确实有这个打算。
 audio/hsk6/a475cd80-0.mp3	他刚转身，你就来了。
 audio/hsk6/a475cd80-1.mp3	真是太不凑巧了。
+audio/hsk6/bae2e8ab-0.mp3	今天的报纸有个健康专题。
+audio/hsk6/bae2e8ab-1.mp3	我得仔细读读。
 audio/hsk6/3145a6ba-0.mp3	别转移话题，快回答我。
 audio/hsk6/3145a6ba-1.mp3	我只是想缓解一下气氛。
 audio/hsk6/1a1c6d8b-0.mp3	这是医护人员专用通道。
@@ -3534,6 +3594,8 @@ audio/hsk6/f2b5d346-0.mp3	准备的食物够足吗？
 audio/hsk6/f2b5d346-1.mp3	绝对够大家吃一顿了。
 audio/hsk6/7e6ea5a1-0.mp3	什么因素阻碍了项目进展？
 audio/hsk6/7e6ea5a1-1.mp3	主要是资金短缺问题。
+audio/hsk6/021141d2-0.mp3	小猫钻进被子里去了。
+audio/hsk6/021141d2-1.mp3	它可能是觉得冷。
 audio/hsk6/1ab885fe-0.mp3	谁也无法阻挡时代的进步。
 audio/hsk6/1ab885fe-1.mp3	这就是历史潮流。
 audio/hsk6/288f8ace-0.mp3	你的祖国在哪里？

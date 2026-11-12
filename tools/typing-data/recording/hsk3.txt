@@ -138,6 +138,8 @@ audio/hsk3/b9b34164-0.mp3	喜欢春天吗?
 audio/hsk3/b9b34164-1.mp3	喜欢。
 audio/hsk3/746b4861-0.mp3	哪年出生?
 audio/hsk3/746b4861-1.mp3	1990年。
+audio/hsk3/06aa1561-0.mp3	什么时候出院?
+audio/hsk3/06aa1561-1.mp3	明天。
 audio/hsk3/6b346b73-0.mp3	上初中了吗?
 audio/hsk3/6b346b73-1.mp3	对。
 audio/hsk3/d6eacfd3-0.mp3	谁的词典?
@@ -214,6 +216,8 @@ audio/hsk3/45b75c34-0.mp3	你喜欢什么动物?
 audio/hsk3/45b75c34-1.mp3	我喜欢猫。
 audio/hsk3/5b71fa45-0.mp3	喜欢什么动物?
 audio/hsk3/5b71fa45-1.mp3	狗。
+audio/hsk3/5489d6c6-0.mp3	去动物园吗?
+audio/hsk3/5489d6c6-1.mp3	明天去。
 audio/hsk3/2c138a08-0.mp3	这一段话什么意思?
 audio/hsk3/2c138a08-1.mp3	我也不懂。
 audio/hsk3/7a5b4841-0.mp3	这一段话?
@@ -288,6 +292,8 @@ audio/hsk3/3835e81b-0.mp3	何时放假?
 audio/hsk3/3835e81b-1.mp3	下周。
 audio/hsk3/cdd25365-0.mp3	什么时候放假?
 audio/hsk3/cdd25365-1.mp3	下周。
+audio/hsk3/e084fd6d-0.mp3	何时放假?
+audio/hsk3/e084fd6d-1.mp3	明天。
 audio/hsk3/bf044f2a-0.mp3	什么方向?
 audio/hsk3/bf044f2a-1.mp3	西边。
 audio/hsk3/beee801b-0.mp3	是什么方向?
@@ -396,6 +402,8 @@ audio/hsk3/321c3192-0.mp3	几公斤?
 audio/hsk3/321c3192-1.mp3	五公斤。
 audio/hsk3/a5408a59-0.mp3	去公园吗?
 audio/hsk3/a5408a59-1.mp3	好。
+audio/hsk3/96dbd4e9-0.mp3	平日忙吗?
+audio/hsk3/96dbd4e9-1.mp3	特别忙。
 audio/hsk3/e0f78804-0.mp3	工作日忙吗?
 audio/hsk3/e0f78804-1.mp3	特别忙。
 audio/hsk3/0babf041-0.mp3	刮风了吗?
@@ -436,6 +444,7 @@ audio/hsk3/bac8b812-0.mp3	好久不见！
 audio/hsk3/bac8b812-1.mp3	你好。
 audio/hsk3/f87e81f3-0.mp3	好久不见!
 audio/hsk3/f87e81f3-1.mp3	你好。
+audio/hsk3/096b6a92-0.mp3	手机号码?
 audio/hsk3/946ad5e1-0.mp3	好像要下雨?
 audio/hsk3/946ad5e1-1.mp3	带伞吧。
 audio/hsk3/416ec34a-0.mp3	这条河长吗?
@@ -1190,6 +1199,10 @@ audio/hsk3/cc03f5ed-0.mp3	用信用卡?
 audio/hsk3/cc03f5ed-1.mp3	可以。
 audio/hsk3/6a0489ef-0.mp3	用信用卡？
 audio/hsk3/6a0489ef-1.mp3	可以。
+audio/hsk3/7978314f-0.mp3	何时休假?
+audio/hsk3/7978314f-1.mp3	明天。
+audio/hsk3/6d2b233b-0.mp3	何时休假？
+audio/hsk3/6d2b233b-1.mp3	明天。
 audio/hsk3/b3956ce0-0.mp3	用洗衣机?
 audio/hsk3/b3956ce0-1.mp3	好的。
 audio/hsk3/f5599bdc-0.mp3	用洗衣机？

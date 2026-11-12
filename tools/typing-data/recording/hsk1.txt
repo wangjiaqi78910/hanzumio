@@ -102,6 +102,7 @@ audio/hsk1/7347f80c-0.mp3	水果店在哪儿？
 audio/hsk1/3fbed1a6-0.mp3	现在几点？
 audio/hsk1/3fbed1a6-1.mp3	十点。
 audio/hsk1/bc15329b-0.mp3	现在两点。
+audio/hsk1/368f58c0-0.mp3	你的电话是多少？
 audio/hsk1/05a66c36-0.mp3	我的电话坏了。
 audio/hsk1/c9da9551-0.mp3	你有电脑吗？
 audio/hsk1/c9da9551-1.mp3	我没有。
@@ -231,6 +232,8 @@ audio/hsk1/8e789250-0.mp3	这里很好玩儿。
 audio/hsk1/f34fd47c-0.mp3	你和他去吗？
 audio/hsk1/f34fd47c-1.mp3	对，我们去。
 audio/hsk1/d47cee05-0.mp3	我和他是好朋友。
+audio/hsk1/aff9ddcc-0.mp3	想喝什么？
+audio/hsk1/aff9ddcc-1.mp3	喝咖啡。
 audio/hsk1/2986d9e6-0.mp3	你想喝点儿什么？
 audio/hsk1/0f4c8654-0.mp3	老师忙吗？
 audio/hsk1/0f4c8654-1.mp3	她很忙。
@@ -313,6 +316,8 @@ audio/hsk1/d040350d-0.mp3	我家有五口人。
 audio/hsk1/a64f2355-0.mp3	这个杯子多少钱？
 audio/hsk1/a64f2355-1.mp3	八块。
 audio/hsk1/d5135322-0.mp3	这本书十块钱。
+audio/hsk1/aac255fa-0.mp3	他什么时候来？
+audio/hsk1/aac255fa-1.mp3	明天来。
 audio/hsk1/1563cd72-0.mp3	欢迎来我家。
 audio/hsk1/53fe8955-0.mp3	她是谁？
 audio/hsk1/53fe8955-1.mp3	她是我的老师。
@@ -362,6 +367,8 @@ audio/hsk1/9e52ab26-0.mp3	我没事，谢谢。
 audio/hsk1/e2caddce-0.mp3	你有书吗？
 audio/hsk1/e2caddce-1.mp3	没有。
 audio/hsk1/8a9b9870-0.mp3	我家里没有人。
+audio/hsk1/5eeb4640-0.mp3	他们是谁？
+audio/hsk1/5eeb4640-1.mp3	同学们。
 audio/hsk1/989d6e92-0.mp3	我们去学校。
 audio/hsk1/8082fdc8-0.mp3	吃什么？
 audio/hsk1/8082fdc8-1.mp3	吃面包。
@@ -480,6 +487,8 @@ audio/hsk1/6b5f8679-0.mp3	这本书多少钱？
 audio/hsk1/536bca48-0.mp3	多少钱？
 audio/hsk1/536bca48-1.mp3	二千块。
 audio/hsk1/8488edfe-0.mp3	这里有两千人。
+audio/hsk1/afa9c50e-0.mp3	几点起床？
+audio/hsk1/afa9c50e-1.mp3	六点。
 audio/hsk1/89ae6e93-0.mp3	我今天六点起床。
 audio/hsk1/fcf63a7a-0.mp3	坐这儿吗？
 audio/hsk1/fcf63a7a-1.mp3	请坐。
@@ -613,6 +622,7 @@ audio/hsk1/b3f71132-1.mp3	没听见。
 audio/hsk1/56cbd0d8-0.mp3	我听见了你的声音。
 audio/hsk1/e9060de7-0.mp3	他是谁？
 audio/hsk1/e9060de7-1.mp3	我同学。
+audio/hsk1/368b5f15-0.mp3	同学们好。
 audio/hsk1/50ed706c-0.mp3	谁在门外？
 audio/hsk1/50ed706c-1.mp3	爸爸。
 audio/hsk1/5f35aa7a-0.mp3	爸爸在门外。
@@ -658,6 +668,8 @@ audio/hsk1/7ea824f5-0.mp3	书在桌子下面。
 audio/hsk1/fabb1ef4-0.mp3	下雨了吗？
 audio/hsk1/fabb1ef4-1.mp3	下雨了。
 audio/hsk1/f21843a7-0.mp3	外面在下雨。
+audio/hsk1/fd6b459f-0.mp3	几点下班？
+audio/hsk1/fd6b459f-1.mp3	六点。
 audio/hsk1/698b32c8-0.mp3	妈妈五点半下班。
 audio/hsk1/54d99a5c-0.mp3	下课了？
 audio/hsk1/54d99a5c-1.mp3	还没。
@@ -682,6 +694,8 @@ audio/hsk1/801ec5b9-0.mp3	我学了两个小时。
 audio/hsk1/98208d61-0.mp3	谁在小学？
 audio/hsk1/98208d61-1.mp3	妹妹。
 audio/hsk1/01439e43-0.mp3	我在小学读书。
+audio/hsk1/b1abfdd1-0.mp3	他是小学生吗？
+audio/hsk1/b1abfdd1-1.mp3	是。
 audio/hsk1/27c996f1-0.mp3	弟弟是小学生。
 audio/hsk1/b9ce9f9b-0.mp3	下午忙吗？
 audio/hsk1/b9ce9f9b-1.mp3	很忙。
@@ -691,6 +705,7 @@ audio/hsk1/91ce11b0-1.mp3	写汉字。
 audio/hsk1/b6a88bc9-0.mp3	我在写汉字。
 audio/hsk1/8d13eedf-0.mp3	买了些苹果？
 audio/hsk1/8d13eedf-1.mp3	买了一些。
+audio/hsk1/5ee1ee6f-0.mp3	我买了一些水果。
 audio/hsk1/cd7f5ec9-0.mp3	谢谢！
 audio/hsk1/cd7f5ec9-1.mp3	不客气。
 audio/hsk1/0fa9b506-0.mp3	谢谢你的帮助。
@@ -715,6 +730,8 @@ audio/hsk1/8fba1899-0.mp3	我们去休息一下。
 audio/hsk1/e8e664df-0.mp3	学汉语吗？
 audio/hsk1/e8e664df-1.mp3	在学。
 audio/hsk1/0fb98916-0.mp3	我在学写汉字。
+audio/hsk1/ffe8132f-0.mp3	下雪了吗？
+audio/hsk1/ffe8132f-1.mp3	下了。
 audio/hsk1/1d1ae4d8-0.mp3	外面下雪了。
 audio/hsk1/e3a6ef0c-0.mp3	他是学生？
 audio/hsk1/e3a6ef0c-1.mp3	对。
@@ -731,6 +748,8 @@ audio/hsk1/ccc12836-0.mp3	我要买苹果。
 audio/hsk1/eb798c95-0.mp3	他去，你也去？
 audio/hsk1/eb798c95-1.mp3	我也去。
 audio/hsk1/fcda40dd-0.mp3	我也是大学生。
+audio/hsk1/cf9b751a-0.mp3	这里有一个吗？
+audio/hsk1/cf9b751a-1.mp3	有。
 audio/hsk1/550bb235-0.mp3	桌子上有一本书。
 audio/hsk1/d848feaa-0.mp3	喝了一半？
 audio/hsk1/d848feaa-1.mp3	对。
@@ -769,6 +788,8 @@ audio/hsk1/8f68cc6c-0.mp3	今天我有点儿累。
 audio/hsk1/48a0977e-0.mp3	雨大吗？
 audio/hsk1/48a0977e-1.mp3	很大。
 audio/hsk1/b2bd5bad-0.mp3	现在的雨很大。
+audio/hsk1/38d4e090-0.mp3	这个多少元？
+audio/hsk1/38d4e090-1.mp3	八元。
 audio/hsk1/9fd8cf98-0.mp3	这个杯子十元。
 audio/hsk1/9bebccbf-0.mp3	几月几号？
 audio/hsk1/9bebccbf-1.mp3	五月一号。
@@ -794,6 +815,8 @@ audio/hsk1/1a01c02d-0.mp3	早上好！
 audio/hsk1/477ead08-0.mp3	怎么去？
 audio/hsk1/477ead08-1.mp3	坐车去。
 audio/hsk1/9632293f-0.mp3	这个字怎么写？
+audio/hsk1/ac1e28a1-0.mp3	电影怎么样？
+audio/hsk1/ac1e28a1-1.mp3	很好。
 audio/hsk1/47a2bbd5-0.mp3	这里的菜怎么样？
 audio/hsk1/642a2ab4-0.mp3	找什么？
 audio/hsk1/642a2ab4-1.mp3	找手机。
@@ -829,6 +852,10 @@ audio/hsk1/67532fe1-0.mp3	这些书都是我的。
 audio/hsk1/5b8b5200-0.mp3	只要一个？
 audio/hsk1/5b8b5200-1.mp3	对。
 audio/hsk1/860aa1ce-0.mp3	我包里只有一块钱。
+audio/hsk1/4195f8fd-0.mp3	你知道他在哪儿吗？
+audio/hsk1/4195f8fd-1.mp3	不知道。
+audio/hsk1/ac0899d2-0.mp3	你知道他在哪儿？
+audio/hsk1/ac0899d2-1.mp3	不知道。
 audio/hsk1/3d126d53-0.mp3	我不知道。
 audio/hsk1/a3d71905-0.mp3	你在中国吗？
 audio/hsk1/a3d71905-1.mp3	对。
@@ -854,6 +881,8 @@ audio/hsk1/ab4d39a4-1.mp3	是。
 audio/hsk1/f8b05e83-0.mp3	你住在哪儿？
 audio/hsk1/f8b05e83-1.mp3	学校。
 audio/hsk1/e0607af4-0.mp3	你住在哪儿？
+audio/hsk1/16bca68d-0.mp3	手机在桌子上吗？
+audio/hsk1/16bca68d-1.mp3	对。
 audio/hsk1/79d2415c-0.mp3	书在桌子上？
 audio/hsk1/79d2415c-1.mp3	在。
 audio/hsk1/602331c0-0.mp3	桌子上有一台电脑。
@@ -866,6 +895,7 @@ audio/hsk1/ec128549-0.mp3	怎么去北京？
 audio/hsk1/ec128549-1.mp3	坐火车。
 audio/hsk1/c2aaa59d-0.mp3	怎么去？
 audio/hsk1/c2aaa59d-1.mp3	坐火车。
+audio/hsk1/6a438853-0.mp3	请坐在这儿。
 audio/hsk1/f0c1055f-0.mp3	你在做什么？
 audio/hsk1/f0c1055f-1.mp3	做工作。
 audio/hsk1/2da138b1-0.mp3	你在做什么？

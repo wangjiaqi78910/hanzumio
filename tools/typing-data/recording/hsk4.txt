@@ -60,6 +60,8 @@ audio/hsk4/38c13b4d-0.mp3	他说了什么？
 audio/hsk4/38c13b4d-1.mp3	他表示非常感谢。
 audio/hsk4/09566b45-0.mp3	他最近工作怎么样？
 audio/hsk4/09566b45-1.mp3	表现得非常积极。
+audio/hsk4/2db4c81d-0.mp3	老师今天高兴吗？
+audio/hsk4/2db4c81d-1.mp3	因为他表扬了大家。
 audio/hsk4/f66ae4f4-0.mp3	你的普通话很好。
 audio/hsk4/f66ae4f4-1.mp3	我的发音标准吗？
 audio/hsk4/bd3a63df-0.mp3	你认识他吗？
@@ -158,6 +160,8 @@ audio/hsk4/d08850d5-0.mp3	你的梦想是什么？
 audio/hsk4/d08850d5-1.mp3	我想成为一名医生。
 audio/hsk4/7f625335-0.mp3	怎么去机场？
 audio/hsk4/7f625335-1.mp3	乘坐地铁最快。
+audio/hsk4/220eb47c-0.mp3	为什么开得这么慢？
+audio/hsk4/220eb47c-1.mp3	这里的车速限制是40。
 audio/hsk4/0e6d4b85-0.mp3	这儿能停车吗？
 audio/hsk4/0e6d4b85-1.mp3	已经没有车位了。
 audio/hsk4/7435582a-0.mp3	会议开始了吗？
@@ -296,6 +300,8 @@ audio/hsk4/156a403c-0.mp3	老师开始上课了吗？
 audio/hsk4/156a403c-1.mp3	正在点名呢，快点儿。
 audio/hsk4/d51a9428-0.mp3	昨晚你看电视了吗？
 audio/hsk4/d51a9428-1.mp3	看了，那部电视剧很好看。
+audio/hsk4/7bdb1e29-0.mp3	他同意了吗？
+audio/hsk4/7bdb1e29-1.mp3	他向我点点头，没说话。
 audio/hsk4/9d4a19b8-0.mp3	你的钱包在哪儿？
 audio/hsk4/9d4a19b8-1.mp3	糟了，好像掉在地上了。
 audio/hsk4/12f9b64d-0.mp3	事情查清楚了吗？
@@ -358,6 +364,8 @@ audio/hsk4/5f874770-0.mp3	怎么解决这个问题？
 audio/hsk4/5f874770-1.mp3	我还没想出好法子。
 audio/hsk4/b053c9c3-0.mp3	你听到了吗？
 audio/hsk4/b053c9c3-1.mp3	机器发出了奇怪的声音。
+audio/hsk4/91681f6d-0.mp3	我们必须这样做吗？
+audio/hsk4/91681f6d-1.mp3	是的，法律规定要这样做。
 audio/hsk4/526862ff-0.mp3	你怎么心情不好？
 audio/hsk4/526862ff-1.mp3	最近事情多，有点儿烦。
 audio/hsk4/1e9c64fa-0.mp3	你支持这个提议吗？
@@ -444,6 +452,8 @@ audio/hsk4/c32a3f9d-0.mp3	你今天感觉怎么样？
 audio/hsk4/c32a3f9d-1.mp3	我感觉好多了，谢谢。
 audio/hsk4/135345a4-0.mp3	演出要开始了。
 audio/hsk4/135345a4-1.mp3	咱们赶快进去吧。
+audio/hsk4/170b34a6-0.mp3	他们俩的关系好吗？
+audio/hsk4/170b34a6-1.mp3	他们的感情非常好。
 audio/hsk4/0b4011b4-0.mp3	这本书讲了什么？
 audio/hsk4/0b4011b4-1.mp3	讲了一个非常感人的故事。
 audio/hsk4/4126accd-0.mp3	你迟到了吗？
@@ -640,6 +650,8 @@ audio/hsk4/50214307-0.mp3	他看起来很高兴。
 audio/hsk4/50214307-1.mp3	因为他拿了大奖。
 audio/hsk4/6d63e6fd-0.mp3	中国最长的河是哪条？
 audio/hsk4/6d63e6fd-1.mp3	是长江。
+audio/hsk4/6a9a15df-0.mp3	我们的任务完成了。
+audio/hsk4/6a9a15df-1.mp3	将这封信交给经理。
 audio/hsk4/83294c19-0.mp3	东西太贵了。
 audio/hsk4/83294c19-1.mp3	商店降低了商品价格。
 audio/hsk4/aabff1ea-0.mp3	现在买手机合适吗？
@@ -728,6 +740,8 @@ audio/hsk4/ba8a1e34-0.mp3	你为什么迟到了？
 audio/hsk4/ba8a1e34-1.mp3	请听我向你解释。
 audio/hsk4/39e2b906-0.mp3	他送你的礼物你拿了吗？
 audio/hsk4/39e2b906-1.mp3	我已经愉快地接受了。
+audio/hsk4/d2862d38-0.mp3	我们要怎么保护环境？
+audio/hsk4/d2862d38-1.mp3	我们要节约用水。
 audio/hsk4/384661d9-0.mp3	我们可以走了吗？
 audio/hsk4/384661d9-1.mp3	请等一下，我去结账。
 audio/hsk4/304877b8-0.mp3	讲完故事了吗？
@@ -742,6 +756,8 @@ audio/hsk4/f4fa6de9-0.mp3	任务完成多少了？
 audio/hsk4/f4fa6de9-1.mp3	目前仅完成了三分之一。
 audio/hsk4/e9ee3c02-0.mp3	那个晚会好看吗？
 audio/hsk4/e9ee3c02-1.mp3	表演非常精彩。
+audio/hsk4/9a819b07-0.mp3	发生了什么事？
+audio/hsk4/9a819b07-1.mp3	我们已经报警找警察了。
 audio/hsk4/0b1c4ef4-0.mp3	北京哪里好玩？
 audio/hsk4/0b1c4ef4-1.mp3	北京有很多著名景点。
 audio/hsk4/83b106af-0.mp3	你的专业是什么？
@@ -1004,6 +1020,8 @@ audio/hsk4/d8358e42-0.mp3	你什么时候有空？
 audio/hsk4/d8358e42-1.mp3	我要在周末去超市。
 audio/hsk4/a5f57525-0.mp3	你的学习计划是什么？
 audio/hsk4/a5f57525-1.mp3	我的目标是今年通过HSK四级。
+audio/hsk4/b0f9e997-0.mp3	你去北京做什么？
+audio/hsk4/b0f9e997-1.mp3	我去北京的目的地是看长城。
 audio/hsk4/f38af19e-0.mp3	我们还要走多久？
 audio/hsk4/f38af19e-1.mp3	快到目的地了，就在前面。
 audio/hsk4/8fc904d9-0.mp3	她们长得真像。
@@ -1018,6 +1036,8 @@ audio/hsk4/4615dd82-0.mp3	学习汉语难吗？
 audio/hsk4/4615dd82-1.mp3	只要有耐心，一定能学好。
 audio/hsk4/97149b8e-0.mp3	你冬天去哪儿旅游？
 audio/hsk4/97149b8e-1.mp3	我想去中国的南部避寒。
+audio/hsk4/80d01210-0.mp3	他怎么还没来？
+audio/hsk4/80d01210-1.mp3	难道他忘了今天的聚会？
 audio/hsk4/dc812a39-0.mp3	这里的衣服真漂亮。
 audio/hsk4/dc812a39-1.mp3	这边是男士专区，请往里走。
 audio/hsk4/bdf4f82a-0.mp3	你脸色不太好，怎么了？
@@ -1066,6 +1086,8 @@ audio/hsk4/8b585abf-0.mp3	你喜欢什么运动？
 audio/hsk4/8b585abf-1.mp3	我喜欢打排球。
 audio/hsk4/ee0b42d8-0.mp3	你想买哪种手机？
 audio/hsk4/ee0b42d8-1.mp3	我想买这个牌子的手机。
+audio/hsk4/9675b6c3-0.mp3	结果还没出来吗？
+audio/hsk4/9675b6c3-1.mp3	很难判断谁赢了。
 audio/hsk4/fad7282c-0.mp3	你去哪儿？
 audio/hsk4/fad7282c-1.mp3	我陪他去医院看病。
 audio/hsk4/5fe80d2a-0.mp3	你想喝点儿什么？
@@ -1348,6 +1370,8 @@ audio/hsk4/a9cf241c-0.mp3	昨天的比赛结果如何？
 audio/hsk4/a9cf241c-1.mp3	很遗憾，我们队输了。
 audio/hsk4/6f0ee394-0.mp3	晚饭做好了吗？
 audio/hsk4/6f0ee394-1.mp3	饭已经熟了，快来吃吧。
+audio/hsk4/b6c05615-0.mp3	你觉得他怎么样？
+audio/hsk4/b6c05615-1.mp3	他长得非常帅。
 audio/hsk4/cf5b5da3-0.mp3	暑假你打算去哪儿？
 audio/hsk4/cf5b5da3-1.mp3	我想去西安旅游。
 audio/hsk4/5c4a2cee-0.mp3	这些产品够吗？
@@ -1356,6 +1380,8 @@ audio/hsk4/95783ed5-0.mp3	我们去哪儿散步？
 audio/hsk4/95783ed5-1.mp3	我们去前面的树林里走走。
 audio/hsk4/9540532c-0.mp3	你要去超市吗？
 audio/hsk4/9540532c-1.mp3	对，顺便帮你买瓶水吧。
+audio/hsk4/412707ef-0.mp3	你的面试怎么样？
+audio/hsk4/412707ef-1.mp3	非常顺利，我拿到录用了。
 audio/hsk4/aeaa3eb0-0.mp3	请按什么排列？
 audio/hsk4/aeaa3eb0-1.mp3	请按照时间顺序排列。
 audio/hsk4/39dc2771-0.mp3	你同意他的意见吗？
@@ -1568,6 +1594,10 @@ audio/hsk4/1d8e2579-0.mp3	谁送给你的礼物？
 audio/hsk4/1d8e2579-1.mp3	我收到了一束美丽的鲜花。
 audio/hsk4/82c8eea4-0.mp3	怎么付钱？
 audio/hsk4/82c8eea4-1.mp3	对不起，我们只收现金。
+audio/hsk4/fa708060-0.mp3	他的汉语说得真流利。
+audio/hsk4/fa708060-1.mp3	我非常羡慕他的口语水平。
+audio/hsk4/e75d521f-0.mp3	怎么参加会议？
+audio/hsk4/e75d521f-1.mp3	这次会议将在线上举行。
 audio/hsk4/f5577037-0.mp3	我们可以见面聊吗？
 audio/hsk4/f5577037-1.mp3	好的，我们约个线下聚会吧。
 audio/hsk4/34b2701d-0.mp3	还有存货吗？
@@ -1684,6 +1714,8 @@ audio/hsk4/78323ef8-0.mp3	你昨晚睡得好吗？
 audio/hsk4/78323ef8-1.mp3	我昨夜做了一个美梦。
 audio/hsk4/c1eb4702-0.mp3	这座城市美吗？
 audio/hsk4/c1eb4702-1.mp3	夜晚的景色非常迷人。
+audio/hsk4/b3ad6792-0.mp3	他怎么还没到？
+audio/hsk4/b3ad6792-1.mp3	也许他在路上堵车了。
 audio/hsk4/4ddfefca-0.mp3	秋天到了吗？
 audio/hsk4/4ddfefca-1.mp3	是的，树上的叶子都变黄了。
 audio/hsk4/40c93308-0.mp3	你买票了吗？
@@ -1768,6 +1800,8 @@ audio/hsk4/3be29c84-0.mp3	你的爱好是什么？
 audio/hsk4/3be29c84-1.mp3	我非常喜欢在深夜阅读。
 audio/hsk4/76794ba1-0.mp3	什么时候最冷？
 audio/hsk4/76794ba1-1.mp3	一月份通常是这里最冷的时候。
+audio/hsk4/e756f1f8-0.mp3	他看起来很开心。
+audio/hsk4/e756f1f8-1.mp3	因为他今晚有一个约会。
 audio/hsk4/1577b397-0.mp3	学习汉语什么最难？
 audio/hsk4/1577b397-1.mp3	我觉得汉语语法挺难的。
 audio/hsk4/0771965c-0.mp3	你的周末过得怎么样？
@@ -1914,6 +1948,8 @@ audio/hsk4/9fef0733-0.mp3	这份礼物是谁送的？
 audio/hsk4/9fef0733-1.mp3	这份信自远方寄来。
 audio/hsk4/a437d309-0.mp3	报告写好了吗？
 audio/hsk4/a437d309-1.mp3	我还在查阅相关资料。
+audio/hsk4/7a09ba5a-0.mp3	你喜欢大自然吗？
+audio/hsk4/7a09ba5a-1.mp3	这里的风景非常自然。
 audio/hsk4/8c1fcd2e-0.mp3	下课后你去哪儿？
 audio/hsk4/8c1fcd2e-1.mp3	我去教室上自习。
 audio/hsk4/d79488cb-0.mp3	事情办好了吗？

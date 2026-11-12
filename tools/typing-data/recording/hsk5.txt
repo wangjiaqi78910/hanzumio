@@ -400,6 +400,8 @@ audio/hsk5/cd337bab-0.mp3	我们应该如何保护环境？
 audio/hsk5/cd337bab-1.mp3	节约用水，从而保护我们的生存环境。
 audio/hsk5/5394646f-0.mp3	这个地方以前是什么样的？
 audio/hsk5/5394646f-1.mp3	从前，这里是一片荒地。
+audio/hsk5/34edb857-0.mp3	你的专业是什么？
+audio/hsk5/34edb857-1.mp3	他一直从事教育科研工作。
 audio/hsk5/0ccb22a6-0.mp3	还要多久才能好？
 audio/hsk5/0ccb22a6-1.mp3	别催了，我正在努力赶工。
 audio/hsk5/39abea2e-0.mp3	这项政策有什么作用？
@@ -482,6 +484,8 @@ audio/hsk5/7017e3d4-0.mp3	他怎么了？
 audio/hsk5/7017e3d4-1.mp3	他太累了，一下车就倒了。
 audio/hsk5/dc33f5ee-0.mp3	火车什么时候到？
 audio/hsk5/dc33f5ee-1.mp3	班机将于十分钟后到达。
+audio/hsk5/d0fa3d63-0.mp3	为什么要这么做？
+audio/hsk5/d0fa3d63-1.mp3	他说的话很有道理。
 audio/hsk5/85863de7-0.mp3	合同还能用吗？
 audio/hsk5/85863de7-1.mp3	这份合同已经到期了。
 audio/hsk5/916af3ad-0.mp3	谁拍的这部戏？
@@ -568,6 +572,8 @@ audio/hsk5/d9554139-0.mp3	刚才晃了一下？
 audio/hsk5/d9554139-1.mp3	刚才这里发生了一次小地震。
 audio/hsk5/4786e451-0.mp3	外面冷吗？
 audio/hsk5/4786e451-1.mp3	外面太冷了，湖水都冻住了。
+audio/hsk5/9b7c8712-0.mp3	裤子怎么了？
+audio/hsk5/9b7c8712-1.mp3	我的裤子上破了一个洞。
 audio/hsk5/65b86271-0.mp3	妹妹在看什么？
 audio/hsk5/65b86271-1.mp3	孩子们都喜欢看动画片。
 audio/hsk5/f4c5da8a-0.mp3	你觉得那部电影怎么样？
@@ -598,6 +604,8 @@ audio/hsk5/cdcf979b-0.mp3	比赛紧张吗？
 audio/hsk5/cdcf979b-1.mp3	这是一个非常强大的对手。
 audio/hsk5/db793897-0.mp3	他们的表现如何？
 audio/hsk5/db793897-1.mp3	这是一支非常专业的医疗队伍。
+audio/hsk5/e1d91032-0.mp3	这本书是给谁看的？
+audio/hsk5/e1d91032-1.mp3	本书的研究对象是青少年。
 audio/hsk5/32ba9ffd-0.mp3	你平时自己住吗？
 audio/hsk5/32ba9ffd-1.mp3	他是一个非常独立的孩子。
 audio/hsk5/f8bfc829-0.mp3	这辆货车载重多少？
@@ -686,6 +694,8 @@ audio/hsk5/678b3556-0.mp3	你们什么时候见面的？
 audio/hsk5/678b3556-1.mp3	我们已经分别很多年了。
 audio/hsk5/e526e604-0.mp3	这种植物长在哪儿？
 audio/hsk5/e526e604-1.mp3	这种植物主要分布在南方。
+audio/hsk5/704b1e13-0.mp3	你的目标是什么？
+audio/hsk5/704b1e13-1.mp3	为了梦想，我们必须努力奋斗。
 audio/hsk5/9bdafd80-0.mp3	演出结束了吗？
 audio/hsk5/9bdafd80-1.mp3	观众们纷纷走出了剧场。
 audio/hsk5/5536d373-0.mp3	你的大学生活怎么样？
@@ -874,6 +884,8 @@ audio/hsk5/4d048ba8-0.mp3	我们可以改变比赛规则吗？
 audio/hsk5/4d048ba8-1.mp3	不行，大家都必须遵守。
 audio/hsk5/a608f688-0.mp3	我的书应该放在哪儿？
 audio/hsk5/a608f688-1.mp3	放在书架旁边的那个柜子里。
+audio/hsk5/a055d804-0.mp3	这里的建筑很有特色。
+audio/hsk5/a055d804-1.mp3	是的，这是一个非常古老的小镇。
 audio/hsk5/37f5b932-0.mp3	球是怎么到树下的？
 audio/hsk5/37f5b932-1.mp3	是顺着山坡滚下去的。
 audio/hsk5/e496d909-0.mp3	晚餐吃什么？
@@ -1088,6 +1100,8 @@ audio/hsk5/0afbb373-0.mp3	这种轮船是用什么材料建造的？
 audio/hsk5/0afbb373-1.mp3	主要是特种钢材。
 audio/hsk5/8f941fb5-0.mp3	这件事我简直不敢相信。
 audio/hsk5/8f941fb5-1.mp3	我也觉得太突然了。
+audio/hsk5/12b6580a-0.mp3	这里的建筑风格很有特色。
+audio/hsk5/12b6580a-1.mp3	是啊，融合了中西方的元素。
 audio/hsk5/e946368c-0.mp3	这两件衣服哪件较好？
 audio/hsk5/e946368c-1.mp3	蓝色的那件质地更好一些。
 audio/hsk5/73e365be-0.mp3	别忘了给阳台的花浇水。
@@ -1180,6 +1194,8 @@ audio/hsk5/c62ce455-0.mp3	他为什么每天都这么忙？
 audio/hsk5/c62ce455-1.mp3	因为他正年轻，充满了精力。
 audio/hsk5/aca145ac-0.mp3	你今天看起来很精神。
 audio/hsk5/aca145ac-1.mp3	昨晚睡得早，所以状态很好。
+audio/hsk5/c550cc68-0.mp3	你的生日聚会怎么样？
+audio/hsk5/c550cc68-1.mp3	同学们给了我一个巨大的惊喜。
 audio/hsk5/e1d256ca-0.mp3	他现在在做什么生意？
 audio/hsk5/e1d256ca-1.mp3	他在市中心经营一家咖啡馆。
 audio/hsk5/551b02ec-0.mp3	这是什么照片？
@@ -1522,6 +1538,8 @@ audio/hsk5/3930bb4a-0.mp3	这是一个秘密，你千万别告诉别人。
 audio/hsk5/3930bb4a-1.mp3	放心吧，我绝对保密。
 audio/hsk5/c2cd35ea-0.mp3	我们要珍惜生命。
 audio/hsk5/c2cd35ea-1.mp3	是的，生活是美好的。
+audio/hsk5/96f642fc-0.mp3	他对空气中的气味非常敏感。
+audio/hsk5/96f642fc-1.mp3	那以后要注意环境通风了。
 audio/hsk5/179401f2-0.mp3	这个组织的正式名称是什么？
 audio/hsk5/179401f2-1.mp3	还在讨论中，暂时还没定。
 audio/hsk5/8cba6dbf-0.mp3	你的书包是名牌吗？
@@ -1614,6 +1632,8 @@ audio/hsk5/32ba158e-0.mp3	你觉得这条领带配这件西装吗？
 audio/hsk5/32ba158e-1.mp3	非常合适，看起来很专业。
 audio/hsk5/b66ec7c7-0.mp3	周末你打算做什么？
 audio/hsk5/b66ec7c7-1.mp3	我想多花点时间陪伴父母。
+audio/hsk5/f2f9c8fb-0.mp3	这次演出很成功。
+audio/hsk5/f2f9c8fb-1.mp3	是啊，大家都配合得非常好。
 audio/hsk5/a5bf2e2d-0.mp3	你们店支持送货上门吗？
 audio/hsk5/a5bf2e2d-1.mp3	支持，我们提供全城配送服务。
 audio/hsk5/a49083af-0.mp3	新员工需要参加培训吗？
@@ -1636,6 +1656,8 @@ audio/hsk5/ccfd0392-0.mp3	他刚才说的都是真的吗？
 audio/hsk5/ccfd0392-1.mp3	别信他，他在骗你。
 audio/hsk5/e3df6528-0.mp3	这种工艺品真漂亮。
 audio/hsk5/e3df6528-1.mp3	是啊，它是纯手工制作的。
+audio/hsk5/4dd5ce18-0.mp3	这个单词怎么拼？
+audio/hsk5/4dd5ce18-1.mp3	是P-I-N-Y-I-N。
 audio/hsk5/4273e104-0.mp3	这条路修得很平。
 audio/hsk5/4273e104-1.mp3	是的，走起来很舒服。
 audio/hsk5/37024faf-0.mp3	谁会来评这篇作文？
@@ -1662,6 +1684,8 @@ audio/hsk5/f5bcb404-0.mp3	你最喜欢哪种品牌的电脑？
 audio/hsk5/f5bcb404-1.mp3	我比较信任那个著名的国际品牌。
 audio/hsk5/778c91a1-0.mp3	学校聘请了一位新的教授。
 audio/hsk5/778c91a1-1.mp3	听说他在这个领域非常有名。
+audio/hsk5/0e70b854-0.mp3	这个汉字的拼音是什么？
+audio/hsk5/0e70b854-1.mp3	是H-A-N-Z-I。
 audio/hsk5/ebe8f65e-0.mp3	这款产品的品质怎么样？
 audio/hsk5/ebe8f65e-1.mp3	非常可靠，销量一直很好。
 audio/hsk5/22b8c325-0.mp3	这里的苹果有很多品种。
@@ -1684,6 +1708,8 @@ audio/hsk5/4fa43161-0.mp3	请在这里签个名。
 audio/hsk5/4fa43161-1.mp3	好的，用黑色的笔吗？
 audio/hsk5/46ab2391-0.mp3	你们已经签订合同了吗？
 audio/hsk5/46ab2391-1.mp3	是的，今天早上刚签完。
+audio/hsk5/1179babf-0.mp3	墙上挂着一幅画。
+audio/hsk5/1179babf-1.mp3	看起来很有艺术感。
 audio/hsk5/fdebc8ea-0.mp3	有人在路上抢了我的包。
 audio/hsk5/fdebc8ea-1.mp3	快去报警，看看附近的监控。
 audio/hsk5/7605508c-0.mp3	这家公司的竞争对手非常强大。
@@ -1766,6 +1792,8 @@ audio/hsk5/b2acf85b-0.mp3	大家都劝他不要辞职，但他还是决定离开
 audio/hsk5/b2acf85b-1.mp3	看来他已经考虑得很清楚了。
 audio/hsk5/9a40486c-0.mp3	每个人都有受教育的权利。
 audio/hsk5/9a40486c-1.mp3	没错，这是基本的人权。
+audio/hsk5/43467d76-0.mp3	我们一定要全力以赴，争取赢得比赛。
+audio/hsk5/43467d76-1.mp3	加油，我们一定能行！
 audio/hsk5/2dc62f15-0.mp3	他的报告写得很全面。
 audio/hsk5/2dc62f15-1.mp3	是的，所有细节都考虑到了。
 audio/hsk5/0006c350-0.mp3	全体员工都要参加会议吗？
@@ -1780,6 +1808,8 @@ audio/hsk5/63238f84-0.mp3	这个计划缺乏可行性。
 audio/hsk5/63238f84-1.mp3	那我们需要重新修改一下。
 audio/hsk5/edca01ec-0.mp3	请确认一下您的订单信息。
 audio/hsk5/edca01ec-1.mp3	没问题，这就是我点的。
+audio/hsk5/a15e17af-0.mp3	操场上有一群学生在踢球。
+audio/hsk5/a15e17af-1.mp3	看起来很有活力。
 audio/hsk5/d0eb0382-0.mp3	这个产品是针对哪些群体的？
 audio/hsk5/d0eb0382-1.mp3	主要是面向职场年轻人的。
 audio/hsk5/74437667-0.mp3	听说那位老教授去世了。
@@ -1812,10 +1842,14 @@ audio/hsk5/46b104f5-0.mp3	这个城市的人口密度非常大。
 audio/hsk5/46b104f5-1.mp3	是的，到处都是人。
 audio/hsk5/38e092f3-0.mp3	我们应该保护环境，造福全人类。
 audio/hsk5/38e092f3-1.mp3	这是我们的共同责任。
+audio/hsk5/e12c0674-0.mp3	这个项目需要投入大量人力。
+audio/hsk5/e12c0674-1.mp3	没关系，我们可以从其他部门抽调。
 audio/hsk5/ef4abbac-0.mp3	我们的宗旨是为人民服务。
 audio/hsk5/ef4abbac-1.mp3	这是一句非常有意义的口号。
 audio/hsk5/d1303e0e-0.mp3	今天的汇率是多少？
 audio/hsk5/d1303e0e-1.mp3	一美元大约换七块人民币。
+audio/hsk5/1c95ee99-0.mp3	广场上聚集了一大片人群。
+audio/hsk5/1c95ee99-1.mp3	好像是在举行什么庆祝活动。
 audio/hsk5/a2d24b13-0.mp3	水占人体体重的百分之七十。
 audio/hsk5/a2d24b13-1.mp3	所以多喝水对身体有好处。
 audio/hsk5/dab9e368-0.mp3	你最崇拜的历史人物是谁？
@@ -1828,6 +1862,8 @@ audio/hsk5/e593a6c4-0.mp3	超市里的日用品正在打折。
 audio/hsk5/e593a6c4-1.mp3	那我得多买一些牙膏和肥皂。
 audio/hsk5/f798f03e-0.mp3	工作中如果遇到困难，请随时联系我。
 audio/hsk5/f798f03e-1.mp3	好的，谢谢您的支持。
+audio/hsk5/504b1779-0.mp3	这个沙发坐起来真软。
+audio/hsk5/504b1779-1.mp3	是的，它的质量非常好。
 audio/hsk5/b8bc3557-0.mp3	你的电脑安装了杀毒软件吗？
 audio/hsk5/b8bc3557-1.mp3	还没，我这就下载一个。
 audio/hsk5/a1fc06d1-0.mp3	既然事实如此，我们也无话可说。
@@ -1914,6 +1950,8 @@ audio/hsk5/4c23165c-0.mp3	坐久了，起来伸个懒腰吧。
 audio/hsk5/4c23165c-1.mp3	好的，身体都快僵硬了。
 audio/hsk5/f315532d-0.mp3	她的身材保持得真好。
 audio/hsk5/f315532d-1.mp3	是啊，她每天都坚持锻炼。
+audio/hsk5/c799a833-0.mp3	这篇文章写得很有深度。
+audio/hsk5/c799a833-1.mp3	值得多读几遍，慢慢体会。
 audio/hsk5/6741227c-0.mp3	请出示您的身份证件。
 audio/hsk5/6741227c-1.mp3	好的，给您。
 audio/hsk5/c8fa1587-0.mp3	这次比赛谁能获胜？
@@ -1990,6 +2028,8 @@ audio/hsk5/f4704100-0.mp3	你听说了最近发生的那个热门事件吗？
 audio/hsk5/f4704100-1.mp3	听说了，网上讨论得很激烈。
 audio/hsk5/7dd550c5-0.mp3	老师，我的试卷已经写完了。
 audio/hsk5/7dd550c5-1.mp3	好的，放在桌子上就可以离开了。
+audio/hsk5/1de5e011-0.mp3	这是一个激动人心的时刻。
+audio/hsk5/1de5e011-1.mp3	是啊，我们终于成功了！
 audio/hsk5/a7489f02-0.mp3	你觉得哪个队会赢？
 audio/hsk5/a7489f02-1.mp3	这两个队的实力差不多。
 audio/hsk5/804e4607-0.mp3	他最近怎么看起来心情不太好？
@@ -2132,6 +2172,8 @@ audio/hsk5/c391dd41-0.mp3	创业的过程中充满了酸甜苦辣。
 audio/hsk5/c391dd41-1.mp3	只有经历过的人才懂其中的滋味。
 audio/hsk5/d0b189be-0.mp3	这里的菜味道怎么样？
 audio/hsk5/d0b189be-1.mp3	随便点，这里的菜都很好吃。
+audio/hsk5/17c5eebe-0.mp3	你的杯子怎么碎了？
+audio/hsk5/17c5eebe-1.mp3	刚才不小心掉在地上了。
 audio/hsk5/be8146dd-0.mp3	经理已经走了，我随后就到。
 audio/hsk5/be8146dd-1.mp3	好的，我们在饭店门口等您。
 audio/hsk5/ea26bb4c-0.mp3	有什么问题请随时联系我。
@@ -2158,8 +2200,12 @@ audio/hsk5/c732f72c-0.mp3	晚上看书记得把台灯打开。
 audio/hsk5/c732f72c-1.mp3	好的，这样对眼睛好。
 audio/hsk5/70fc00ce-0.mp3	请小心脚下的台阶。
 audio/hsk5/70fc00ce-1.mp3	谢谢提醒，这里确实有点暗。
+audio/hsk5/fed3e5c3-0.mp3	您太太今天没跟您一起来吗？
+audio/hsk5/fed3e5c3-1.mp3	她今天有点事，留在家里。
 audio/hsk5/d675da28-0.mp3	老师找你去办公室做什么？
 audio/hsk5/d675da28-1.mp3	只是随便找我谈话。
+audio/hsk5/5b841260-0.mp3	这个桃子真甜，在哪儿买的？
+audio/hsk5/5b841260-1.mp3	在超市的生鲜区。
 audio/hsk5/24709302-0.mp3	我想买一套新的西装。
 audio/hsk5/24709302-1.mp3	这一款就很适合你。
 audio/hsk5/7ece659d-0.mp3	我们要学会尊重他人。
@@ -2212,6 +2258,8 @@ audio/hsk5/7fbb650d-0.mp3	读完这本书你有什么体会？
 audio/hsk5/7fbb650d-1.mp3	我觉得时间管理非常重要。
 audio/hsk5/b4dc04c4-0.mp3	报告已经提交给经理了。
 audio/hsk5/b4dc04c4-1.mp3	希望能尽快通过。
+audio/hsk5/8a07c873-0.mp3	这项工作很消耗体力。
+audio/hsk5/8a07c873-1.mp3	是的，我感觉有点累。
 audio/hsk5/0f43ec0d-0.mp3	这次考试的题目很难。
 audio/hsk5/0f43ec0d-1.mp3	我也觉得，尤其是最后一道。
 audio/hsk5/a3e960f1-0.mp3	火车在小站停留多久？
@@ -2240,6 +2288,8 @@ audio/hsk5/e732b273-0.mp3	这条路禁止通行。
 audio/hsk5/e732b273-1.mp3	那我们得绕道走了。
 audio/hsk5/87aa2e44-0.mp3	我们竟然买了同一款手机。
 audio/hsk5/87aa2e44-1.mp3	真是太巧了！
+audio/hsk5/a909f8db-0.mp3	公司决定统一着装。
+audio/hsk5/a909f8db-1.mp3	这样看起来更专业一些。
 audio/hsk5/e3f95da8-0.mp3	这块石头真漂亮。
 audio/hsk5/e3f95da8-1.mp3	是从海边捡回来的。
 audio/hsk5/1a7e0919-0.mp3	请把垃圾投进垃圾桶里。
@@ -2280,6 +2330,8 @@ audio/hsk5/5026ea1c-0.mp3	学校的图书馆藏书多吗？
 audio/hsk5/5026ea1c-1.mp3	非常多，各种类型的都有。
 audio/hsk5/1d8c4881-0.mp3	这种兔子长得真可爱。
 audio/hsk5/1d8c4881-1.mp3	是啊，耳朵特别长。
+audio/hsk5/14eeb778-0.mp3	建筑的外部装饰已经完成了。
+audio/hsk5/14eeb778-1.mp3	看起来很有现代感。
 audio/hsk5/81fe446f-0.mp3	我外公今年八十岁了。
 audio/hsk5/81fe446f-1.mp3	他身体还好吗？
 audio/hsk5/73072484-0.mp3	这款新手机的外观很时尚。
@@ -2450,6 +2502,8 @@ audio/hsk5/f32f4c79-0.mp3	每个人的发言时间有限制吗？
 audio/hsk5/f32f4c79-1.mp3	是的，每人不能超过三分钟。
 audio/hsk5/22e8459c-0.mp3	你对公司的现状满意吗？
 audio/hsk5/22e8459c-1.mp3	还有很多需要改进的地方。
+audio/hsk5/013a8685-0.mp3	年轻人现在的消费观念变化很大。
+audio/hsk5/013a8685-1.mp3	是的，他们更看重体验。
 audio/hsk5/de309a82-0.mp3	消费者对这款产品的评价很高。
 audio/hsk5/de309a82-1.mp3	看来我们的努力没白费。
 audio/hsk5/20011aa2-0.mp3	饭后散步有助于消化。
@@ -2524,10 +2578,14 @@ audio/hsk5/0f684f8c-0.mp3	新娘的婚纱真漂亮。
 audio/hsk5/0f684f8c-1.mp3	是由知名设计师设计的。
 audio/hsk5/caf3139c-0.mp3	我非常信任我的搭档。
 audio/hsk5/caf3139c-1.mp3	信任是合作的基础。
+audio/hsk5/97683434-0.mp3	公司最近招了不少新人。
+audio/hsk5/97683434-1.mp3	是的，团队注入了新的血液。
 audio/hsk5/cf6e8911-0.mp3	我很欣赏他的工作态度。
 audio/hsk5/cf6e8911-1.mp3	的确，他非常认真负责。
 audio/hsk5/6b337f94-0.mp3	面对困难，我们要保持良好的心态。
 audio/hsk5/6b337f94-1.mp3	没错，积极的心态很重要。
+audio/hsk5/1bf3bfb8-0.mp3	这是一个新型的农业项目。
+audio/hsk5/1bf3bfb8-1.mp3	看起来很有发展前景。
 audio/hsk5/d0efbfc1-0.mp3	他的个人信用记录非常好。
 audio/hsk5/d0efbfc1-1.mp3	这对办理贷款很有帮助。
 audio/hsk5/4f007e9a-0.mp3	植物通过根部吸收水分。
@@ -2732,6 +2790,8 @@ audio/hsk5/c9c72f15-0.mp3	这个问题很复杂，我们由此开始讨论吧。
 audio/hsk5/c9c72f15-1.mp3	好的，先从基本定义谈起。
 audio/hsk5/204277ae-0.mp3	抽烟对身体有害。
 audio/hsk5/204277ae-1.mp3	道理我都懂，就是戒不掉。
+audio/hsk5/7569f4a3-0.mp3	你的女儿在哪个幼儿园上学？
+audio/hsk5/7569f4a3-1.mp3	在我们小区里的那个双语幼儿园。
 audio/hsk5/76e1cee1-0.mp3	现在买两件有优惠吗？
 audio/hsk5/76e1cee1-1.mp3	有的，可以打八折。
 audio/hsk5/8943b7e1-0.mp3	资料我已经给您邮寄过去了。
@@ -2794,6 +2854,8 @@ audio/hsk5/e15805c3-0.mp3	怎么预防感冒？
 audio/hsk5/e15805c3-1.mp3	平时要多喝水，多锻炼。
 audio/hsk5/8c637469-0.mp3	预计工程什么时候完工？
 audio/hsk5/8c637469-1.mp3	下个月中旬左右。
+audio/hsk5/8b01d279-0.mp3	这里的娱乐设施多吗？
+audio/hsk5/8b01d279-1.mp3	挺多的，有电影院和KTV。
 audio/hsk5/5ba22c76-0.mp3	这种玉米真甜。
 audio/hsk5/5ba22c76-1.mp3	是啊，是新鲜采摘的。
 audio/hsk5/413dc247-0.mp3	这批货要怎么运过去？
@@ -2808,6 +2870,8 @@ audio/hsk5/5aaa606d-0.mp3	我们要学会运用所学知识。
 audio/hsk5/5aaa606d-1.mp3	是的，实践非常重要。
 audio/hsk5/17cd9d10-0.mp3	他说话的语气很有礼貌。
 audio/hsk5/17cd9d10-1.mp3	是的，给人留下了很好的印象。
+audio/hsk5/03f8aec7-0.mp3	今年的雨水特别多。
+audio/hsk5/03f8aec7-1.mp3	农民们都在担心庄稼受灾。
 audio/hsk5/962aa5c8-0.mp3	你的语文成绩怎么样？
 audio/hsk5/962aa5c8-1.mp3	挺好的，我特别喜欢文学。
 audio/hsk5/4d9dc094-0.mp3	他的语音非常标准。
@@ -2830,6 +2894,8 @@ audio/hsk5/79deeb22-0.mp3	这种新船是什么时候造出来的？
 audio/hsk5/79deeb22-1.mp3	是去年底刚刚下水的。
 audio/hsk5/9e5161a4-0.mp3	这件事办得太糟了。
 audio/hsk5/9e5161a4-1.mp3	别急，我们看看怎么补救。
+audio/hsk5/fb7ac961-0.mp3	洪水对农作物造成了严重影响。
+audio/hsk5/fb7ac961-1.mp3	看来今年的收成会受影响。
 audio/hsk5/6c5c31d4-0.mp3	糟糕，我忘了带钥匙。
 audio/hsk5/6c5c31d4-1.mp3	别担心，我正好带了备用的。
 audio/hsk5/7afa5685-0.mp3	疾病如果能在早期发现，治愈率很高。
@@ -3020,6 +3086,8 @@ audio/hsk5/3da04784-0.mp3	过年的时候，家里都要装饰一下。
 audio/hsk5/3da04784-1.mp3	是啊，挂上灯笼更有气氛。
 audio/hsk5/2f74ddb0-0.mp3	他在比赛中保持着最佳状态。
 audio/hsk5/2f74ddb0-1.mp3	难怪他最后赢得了冠军。
+audio/hsk5/6c9ea32c-0.mp3	你的新房开始装修了吗？
+audio/hsk5/6c9ea32c-1.mp3	已经开始半个月了，正刷墙呢。
 audio/hsk5/67cc1474-0.mp3	这位医生是心脏病方面的专家。
 audio/hsk5/67cc1474-1.mp3	他的医术确实非常高明。
 audio/hsk5/03f4a699-0.mp3	学习的时候一定要专心。
@@ -3050,6 +3118,8 @@ audio/hsk5/6d0d9a91-0.mp3	中餐的主食一般是什么？
 audio/hsk5/6d0d9a91-1.mp3	主要是米饭或者面条。
 audio/hsk5/84e350c1-0.mp3	你们在旅游期间是怎么安排住宿的？
 audio/hsk5/84e350c1-1.mp3	我们提前在网上预订了酒店。
+audio/hsk5/3baf32b1-0.mp3	这次会议的主题是什么？
+audio/hsk5/3baf32b1-1.mp3	主要是讨论环境保护问题。
 audio/hsk5/f3a51b85-0.mp3	学生会主席是由谁担任的？
 audio/hsk5/f3a51b85-1.mp3	是大三的李华同学。
 audio/hsk5/550a19a2-0.mp3	请填写您的家庭住址。

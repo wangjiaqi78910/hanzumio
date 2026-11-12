@@ -92,6 +92,8 @@ audio/hsk2/078337d6-0.mp3	看，天上有只鸟在飞。
 audio/hsk2/078337d6-1.mp3	飞得真高啊。
 audio/hsk2/dcb67273-0.mp3	你的个子真高。
 audio/hsk2/dcb67273-1.mp3	谢谢，我一米八五。
+audio/hsk2/a7ac36d0-0.mp3	请告诉我你的电话号码。
+audio/hsk2/a7ac36d0-1.mp3	好的，是123456。
 audio/hsk2/2fbe1ab6-0.mp3	你在哪儿上高中？
 audio/hsk2/2fbe1ab6-1.mp3	我在第一高中。
 audio/hsk2/49577ac9-0.mp3	我想跟你一起去北京。
@@ -126,6 +128,8 @@ audio/hsk2/6c6e2fbb-0.mp3	买这件衣服花了多少钱？
 audio/hsk2/6c6e2fbb-1.mp3	花了两百块。
 audio/hsk2/34ed9856-0.mp3	公园里的花开得真美。
 audio/hsk2/34ed9856-1.mp3	是啊，红的黄的都有。
+audio/hsk2/f5e9b156-0.mp3	你的手机怎么了？
+audio/hsk2/f5e9b156-1.mp3	好像是屏幕坏了。
 audio/hsk2/4b3d0c71-0.mp3	你什么时候回来？
 audio/hsk2/4b3d0c71-1.mp3	我下午五点回来。
 audio/hsk2/4522a00f-0.mp3	太晚了，我得回去了。
