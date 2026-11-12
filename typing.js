@@ -340,11 +340,14 @@
   }
 
   // ---------- 朗读 ----------
-  // 录音放在 audio/hsk<级别>/<题目id>-<行号>.mp3；没有文件的句子不显示按钮
+  // 录音放在 <AUDIO_BASE>hsk<级别>/<题目id>-<行号>.mp3；没有文件的句子不显示按钮。
+  // 默认是仓库里的 audio/；录音放在别的服务器时，在 typing.html 里引入 typing.js 之前设置
+  // window.HANZUMIO_AUDIO_BASE = 'https://example.com/hanzumio-audio/'
+  const AUDIO_BASE = (typeof window.HANZUMIO_AUDIO_BASE === 'string' && window.HANZUMIO_AUDIO_BASE) || 'audio/';
   const audioMissing = new Set();
   function audioUrl(key) {
     const [id, li] = key.split(':');
-    return `audio/hsk${settings.level}/${id}-${li}.mp3`;
+    return `${AUDIO_BASE}hsk${settings.level}/${id}-${li}.mp3`;
   }
   function stopAudio() {
     if (cur && cur.audio) { cur.audio.pause(); cur.audio = null; }

@@ -142,7 +142,16 @@ def load_map(name):
         return {}
 DICT_PYFIX = load_map('dict-pyfix.json')        # {"汉字|错拼音": "对拼音"}   词表里的声调笔误
 DICT_OVERRIDE = load_map('dict-override.json')  # {"汉字|拼音": {pos, en, ko}}  润色过的词卡
+# 语料里实际出现的 (汉字, 带调拼音)，用来判断润色改拼音时是另一个读音还是笔误
+corpus_py = set()
+for it in A['items']:
+    for l in it['lines']:
+        for w in l.get('w') or []:
+            if len(w) == 2:
+                corpus_py.add((w[0], py_key(''.join(w[1]))))
+
 by_hz = collections.defaultdict(list)
+extra_entries = []
 for m in A['dictionary']:
     k = m['hz'] + '|' + py_key(m['py'])
     if k in DICT_PYFIX:
@@ -151,13 +160,28 @@ for m in A['dictionary']:
         k = m['hz'] + '|' + py_key(m['py'])
     ov = DICT_OVERRIDE.get(k) or DICT_OVERRIDE.get(m['hz'] + '|' + py_key(m['py'].split('/')[0]))
     if ov:
+        target = m
+        if ov.get('py') and py_key(ov['py']) != py_key(m['py']):
+            old_key = py_key(m['py'].split('/')[0])
+            if (m['hz'], old_key) in corpus_py and tl(old_key) == tl(py_key(ov['py'])):
+                # 原读音在句子里确实用到：这是另一个读音（只 zhǐ / zhī），新增一条，原条保留
+                target = dict(m)
+                target['alt'] = {}
+                extra_entries.append(target)
+                report['dict-override-new-reading'] += 1
+            else:
+                report['dict-override-py'] += 1
+            target['py'] = ov['py']
         for f in ('pos', 'en', 'ko'):
             if ov.get(f):
-                m[f] = ov[f]
-        m['alt'] = {}
+                target[f] = ov[f]
+        target['alt'] = {}
         report['dict-override'] += 1
     m['_pos'] = pos_code(m.get('pos'), m.get('pos_en'))
     m['en'], m['ko'] = with_alt(m, 'en'), with_alt(m, 'ko')
+    by_hz[m['hz']].append(m)
+for m in extra_entries:
+    m['_pos'] = pos_code(m.get('pos'), m.get('pos_en'))
     by_hz[m['hz']].append(m)
 
 SANDHI = {'一', '不'}

@@ -369,9 +369,9 @@ audio/hsk3/aa569aa9-1.mp3	看书。
 audio/hsk3/e85994ed-0.mp3	感兴趣吗?
 audio/hsk3/e85994ed-1.mp3	很有感。
 audio/hsk3/3417eb47-0.mp3	你对汉语感兴趣?
-audio/hsk3/3417eb47-1.mp3	非常感。
+audio/hsk3/3417eb47-1.mp3	非常感兴趣。
 audio/hsk3/6b98cebe-0.mp3	对汉语感兴趣?
-audio/hsk3/6b98cebe-1.mp3	非常感。
+audio/hsk3/6b98cebe-1.mp3	非常感兴趣。
 audio/hsk3/69b7435e-0.mp3	感到累吗?
 audio/hsk3/69b7435e-1.mp3	有点儿。
 audio/hsk3/844d7d72-0.mp3	他在哪?
