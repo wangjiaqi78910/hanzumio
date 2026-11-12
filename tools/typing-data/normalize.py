@@ -63,7 +63,7 @@ def split_bracket(s):
         issue('trailing-text', s[:60], f'拼音括号后面还有文字：{m.group(3)!r}')
     return (m.group(1).strip(), m.group(2).strip())
 
-TURN = re.compile(r'(?:^|(?<=\s))([QAB])\s*[:：]\s*')
+TURN = re.compile(r'(?:^|(?<=[\s！!？?。.，,；;]))([QAB])\s*[:：]\s*')
 def split_turns(s):
     s = s.strip()
     marks = list(TURN.finditer(s))
@@ -204,8 +204,17 @@ for s in [x for x in sources if x['role'] == 'example']:
         add_entry(uid, num, s['lv'], hz, py, s['name'], pos=r[3], en=r[4])
         zh, spy = split_bracket(r[5])
         if zh:
-            cands.append(dict(uid=uid, num=num, lv=s['lv'], hz=hz, py=py, kind='example',
-                              lines=[dict(role='', zh=zh, py=spy, ko='', en=r[6])], src=s['name']))
+            # 个别例句本身是「A:谢谢！B:不客气。」这样的小对话：按 A/B 拆成两行
+            zh_t, py_t, en_t = split_turns(zh), split_turns(spy), split_turns(r[6])
+            if len(zh_t) > 1:
+                # 括号里的拼音可能只覆盖一部分（A:谢谢！B:不客气。 [Bú kèqi.]）：段数对不上就留空，由 align.py 自动生成
+                if len(py_t) != len(zh_t):
+                    issue('example-partial-pinyin', uid, f'{zh}：拼音「{spy}」只有 {len(py_t)} 段，留空自动生成')
+                lines = [dict(role=zh_t[k][0], zh=zh_t[k][1], py=py_t[k][1] if len(py_t) == len(zh_t) else '', ko='',
+                              en=en_t[k][1] if len(en_t) == len(zh_t) else '') for k in range(len(zh_t))]
+            else:
+                lines = [dict(role='', zh=zh, py=spy, ko='', en=r[6])]
+            cands.append(dict(uid=uid, num=num, lv=s['lv'], hz=hz, py=py, kind='example', lines=lines, src=s['name']))
 
 for s in [x for x in sources if x['role'] == 'vocab_en']:
     for n, r in enumerate(s['rows']):
@@ -292,15 +301,29 @@ def dict_level(hz, py):
     return ms[0]['lv'] if ms else None
 
 # ---------------- merge items ----------------
+def clean_head(hz, lines):
+    """题目的焦点词：去掉「花1」的数字；「有时(候)」取句子里出现的那个写法"""
+    hz = re.sub(r'\d+$', '', hz).strip()
+    m = OPT.search(hz)
+    if not m:
+        return hz
+    short = hz[:m.start()] + hz[m.end():]
+    long = hz[:m.start()] + m.group(1) + hz[m.end():]
+    text = ''.join(l['zh'] for l in lines)
+    return long if long in text else short
+
 items = collections.OrderedDict()
 for c in cands:
     key = key_lines(c['lines'])
     if not key:
         continue
-    k = (c['kind'], key)
+    c['hz'] = clean_head(c['hz'], c['lines'])
+    k = key   # 同样的文字只出一题：例句和对话重合时算对话
     lv = c['lv'] if c['num'] is not None else (dict_level(c['hz'], c['py']) or c['lv'])
     if k in items:
         it = items[k]
+        if c['kind'] == 'dialogue':
+            it['kind'] = 'dialogue'
         for a, b in zip(it['lines'], c['lines']):
             for f in ('py', 'ko', 'en'):
                 if not a[f] and b[f]:

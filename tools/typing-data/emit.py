@@ -88,15 +88,50 @@ def pos_code(pos, pos_en=''):
             return 'q'
     return 'x'
 
+def split_senses(text):
+    """按 / ; , 、 拆成义项，括号里的分隔符不拆"""
+    out, buf, depth = [], '', 0
+    for ch in text:
+        if ch in '([（［':
+            depth += 1
+        elif ch in ')]）］':
+            depth = max(0, depth - 1)
+        if depth == 0 and ch in '/;,、；，':
+            out.append(buf)
+            buf = ''
+        else:
+            buf += ch
+    out.append(buf)
+    return [x.strip() for x in out if x.strip()]
+
 def with_alt(m, f):
-    """'flower / to spend' when the same written+spoken word has a second meaning in the lists."""
+    """同形同音的词在别的级别还有一个意思时，把两边的义项合并去重：花 → to spend / flower"""
     v = (m.get(f) or '').strip()
-    for a in (m.get('alt') or {}).get(f, []):
-        a = a.strip()
-        if a and a.lower() != v.lower() and len(v) + len(a) <= 44:
-            v = f'{v} / {a}'
+    alts = [a.strip() for a in (m.get('alt') or {}).get(f, []) if a.strip()]
+    if not alts:
+        return v
+    norm = lambda x: re.sub(r'[\s()（）\[\].,;:/~～·]+', '', x).lower()
+    senses = []
+    def add(x):
+        nx = norm(x)
+        if not nx:
+            return
+        for sx in senses:
+            ns = norm(sx)
+            if nx == ns or nx in ns or ns in nx:
+                return
+        senses.append(x)
+    for x in split_senses(v):
+        add(x)
+    for a in alts:
+        for x in split_senses(a):
+            add(x)
+    out = []
+    for x in senses:
+        if out and len(' / '.join(out + [x])) > 44:
             break
-    return v
+        out.append(x)
+    return ' / '.join(out) if out else v
 
 by_hz = collections.defaultdict(list)
 for m in A['dictionary']:
@@ -161,6 +196,10 @@ for lv in LEVELS:
             if not l.get('w'):
                 ok = False
                 break
+            if not any(len(w) == 2 for w in l['w']):
+                # 只有数字、字母或标点的句子（答句「123456.」）没有可打的词，不出题
+                report['line-nothing-to-type'] += 1
+                continue
             toks, pys = [], []
             for w in l['w']:
                 if len(w) == 1:

@@ -130,7 +130,7 @@ def align_line(zh, py):
         while ui < len(units) and units[ui]['type'] == 'punct':
             words.append([units[ui]['text']])
             ui += 1
-        han_left = any(u['type'] == 'han' for u in units[ui:])
+        han_left = any(u['type'] in ('han', 'fixed') for u in units[ui:])
         if ui >= len(units) or not han_left:
             if tl(core) in PARTICLES:
                 repairs.append(['drop-token', t])
@@ -229,6 +229,30 @@ def pos_code(m):
     unmapped[(p, m.get('pos_en'))] += 1
     return 'x'
 
+# ---------------- 没有拼音的句子：词典最大匹配分词 + pypinyin ----------------
+MAXLEN = max((len(h) for h in by_hz), default=4)
+def auto_pinyin(zh):
+    zh = unicodedata.normalize('NFC', zh)
+    toned = [x[0] for x in pinyin(zh, style=Style.TONE)]   # 一字一项，非汉字原样
+    toks, i = [], 0
+    while i < len(zh):
+        ch = zh[i]
+        if not HAN.match(ch):
+            if not ch.isspace():
+                toks.append(ch)
+            i += 1
+            continue
+        n, word_py = 1, ''
+        for L in range(min(MAXLEN, len(zh) - i), 1, -1):
+            if zh[i:i + L] in by_hz and all(HAN.match(c) for c in zh[i:i + L]):
+                n = L
+                word_py = re.sub(r"[\s'’\-]", '', unicodedata.normalize('NFC', by_hz[zh[i:i + L]][0]['py'] or ''))
+                break
+        # 词典里有这个词就用词典的读音（bú kèqi 的轻声），否则逐字
+        toks.append(word_py if word_py and tl(word_py) == tl(''.join(toned[i:i + n])).replace('v', 'v') or (word_py and len(tl(word_py)) == len(tl(''.join(toned[i:i + n])))) else ''.join(toned[i:i + n]))
+        i += n
+    return ' '.join(toks)
+
 # ---------------- run ----------------
 stats = collections.Counter()
 failed, unknown = [], collections.OrderedDict()
@@ -237,9 +261,9 @@ for it in d['items']:
     for l in it['lines']:
         stats['lines'] += 1
         if not l['py']:
-            stats['no-pinyin'] += 1
-            failed.append(dict(id=it['id'], lv=it['lv'], zh=l['zh'], py=l['py'], reason='no-pinyin'))
-            continue
+            l['py'] = auto_pinyin(l['zh'])
+            l['auto_py'] = True
+            stats['repair:auto-pinyin'] += 1
         words, err, repairs = align_line(l['zh'], l['py'])
         for r in repairs:
             stats['repair:' + r[0]] += 1
