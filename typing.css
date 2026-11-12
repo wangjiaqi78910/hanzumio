@@ -124,3 +124,6 @@ dialog input{accent-color:var(--accent);width:18px;height:18px;margin:0}
 .levelbtn:empty{display:none}
 .loading{color:var(--muted);text-align:center;padding:40px 0}
 dialog fieldset.col{flex-direction:column;gap:2px}
+.play{flex:none;align-self:center;border:1px solid var(--line);background:var(--card);color:var(--accent);border-radius:999px;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.play:hover{border-color:var(--accent)}
+.play[hidden]{display:none}

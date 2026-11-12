@@ -4,7 +4,7 @@
   'use strict';
 
   const LEVELS = ['1', '2', '3', '4', '5', '6', '7-9'];
-  const STORE_KEY = 'hanzumio-typing-v2';
+  const STORE_KEY = 'hanzumio-typing-v3';
   const DATA = window.HANZUMIO_TYPING_LEVELS = window.HANZUMIO_TYPING_LEVELS || {};
   const HAN = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
 
@@ -28,8 +28,9 @@
       meaning: '释义语言', reset: '清空记录', resetAsk: '清空这个浏览器里的打字练习记录？', close: '完成',
       helpTitle: '怎么输入', note: '练习记录只保存在这个浏览器里，不会上传。',
       loading: '正在加载 HSK {lv} 的题目…', loadError: 'HSK {lv} 的题目加载失败，请检查网络后重试。', focusWord: '本题词',
+      play: '朗读', autoPlay: '题目出现时自动朗读（有录音的句子）',
       help: [
-        '每道题是一组 HSK 词汇的例句或一问一答：看每句的意思，按词把中文写出来。标点和数字已经填好，不用打。',
+        '每道题是一句话：看它的意思，按词把中文写出来。句子来自 HSK 词汇的例句和一问一答，问句和答句是前后两道题，顶上的「上一题」就是它的上文。有录音的句子会自动朗读，按 Ctrl 或喇叭按钮可以重听。标点和数字已经填好，不用打。',
         '拼音模式：像输入法一样只打字母就行，可以连着打（woshixuesheng），字母会自动分到后面的空格里，按空格也能跳到下一个词；在最后一个词按空格或回车提交。想练声调可以用数字标调，打 ni3 会变成 nǐ，轻声不用标；ü 用 v 打，lv4 会变成 lǜ；儿化 nar、naer、nar3 都行。提交后每个词下面会显示带声调的拼音。',
         '汉字模式：用电脑或手机自带的中文输入法。输入法选字时按的空格和回车留给输入法，不会跳词。一次打出好几个词也可以，多出来的字会自动排到后面的空格里。',
         '绿色是对的，黄色是拼音对了但声调不对，红色是写错或没写。按 Esc 可以看当前这个词的答案，提交后点「再练一遍」只重写错的词。觉得难可以在设置里打开提示或词卡。',
@@ -53,8 +54,9 @@
       meaning: 'Meaning in', reset: 'Clear progress', resetAsk: 'Clear your typing progress in this browser?', close: 'Done',
       helpTitle: 'How to type', note: 'Your progress is kept only in this browser and is never uploaded.',
       loading: 'Loading HSK {lv}…', loadError: 'Could not load HSK {lv}. Check your connection and try again.', focusWord: 'Word',
+      play: 'Listen', autoPlay: 'Play the recording when a question appears (sentences that have one)',
       help: [
-        'Each question is an example sentence or a short Q&A for one HSK word: read the meaning of each line and type the Chinese word by word. Punctuation and numbers are filled in for you.',
+        'Each question is one sentence: read its meaning and type the Chinese word by word. The sentences come from HSK vocabulary examples and short Q&As; a question and its answer are two consecutive items, and the “Previous” line at the top gives you the context. Sentences with a recording play automatically; press Ctrl or the speaker button to hear it again. Punctuation and numbers are filled in for you.',
         'Pinyin mode: just type the letters, like in a Chinese input method. You can type straight through (woshixuesheng) and the letters flow into the next blanks, or press Space to move to the next word; on the last word, Space or Enter checks the answer. To practise tones, type them as numbers — ni3 becomes nǐ, neutral tones stay bare; type ü as v (lv4 → lǜ); erhua as nar, naer or nar3. After checking, the pinyin with tone marks is shown under every word.',
         'Hanzi mode: use the Chinese input method on your computer or phone. Space and Enter pressed while picking characters stay with the input method and never skip a word. You can type several words at once; extra characters flow into the next blanks.',
         'Green is right, amber means the pinyin is right but the tone is not, red is wrong or blank. Press Esc to see the answer for the current word. After checking, “Try again” clears only the words you missed. If it is too hard, turn on hints or word cards in Settings.',
@@ -78,8 +80,9 @@
       meaning: '뜻 언어', reset: '기록 지우기', resetAsk: '이 브라우저에 저장된 타자 연습 기록을 지울까요?', close: '완료',
       helpTitle: '입력 방법', note: '연습 기록은 이 브라우저에만 저장되며 업로드되지 않아요.',
       loading: 'HSK {lv} 문제를 불러오는 중…', loadError: 'HSK {lv} 문제를 불러오지 못했어요. 연결을 확인하고 다시 시도하세요.', focusWord: '단어',
+      play: '듣기', autoPlay: '문제가 나오면 자동으로 녹음 재생 (녹음이 있는 문장)',
       help: [
-        '각 문제는 HSK 단어 하나의 예문 또는 짧은 문답이에요. 각 줄의 뜻을 보고 중국어를 단어별로 입력하세요. 문장 부호와 숫자는 미리 채워져 있어요.',
+        '한 문제는 한 문장이에요. 뜻을 보고 중국어를 단어별로 입력하세요. 문장은 HSK 단어의 예문과 짧은 문답에서 가져왔고, 질문과 대답은 앞뒤 두 문제로 나와요. 맨 위의 ‘이전 문제’ 줄이 바로 앞 문맥이에요. 녹음이 있는 문장은 자동으로 재생되고, Ctrl이나 스피커 버튼으로 다시 들을 수 있어요. 문장 부호와 숫자는 미리 채워져 있어요.',
         '병음 모드: 중국어 입력기처럼 알파벳만 입력하면 돼요. 이어서 쳐도(woshixuesheng) 글자가 다음 빈칸으로 자동으로 넘어가고, 스페이스로 다음 단어로 갈 수도 있어요. 마지막 단어에서 스페이스나 엔터를 누르면 제출돼요. 성조를 연습하려면 숫자로 입력하세요. ni3을 치면 nǐ로 바뀌고, 경성은 숫자를 붙이지 않아요. ü는 v로 입력해요(lv4 → lǜ). 얼화는 nar, naer, nar3 모두 돼요. 제출하면 단어마다 성조가 표시된 병음이 보여요.',
         '한자 모드: 컴퓨터나 휴대폰의 중국어 입력기를 쓰세요. 글자를 고를 때 누르는 스페이스와 엔터는 입력기가 처리하므로 단어를 건너뛰지 않아요. 여러 단어를 한 번에 입력해도 남는 글자는 다음 빈칸으로 넘어가요.',
         '초록색은 정답, 노란색은 병음은 맞지만 성조가 틀린 것, 빨간색은 틀렸거나 비워 둔 단어예요. Esc를 누르면 지금 단어의 답을 볼 수 있어요. 제출한 뒤 ‘다시 하기’를 누르면 틀린 단어만 다시 써요. 어려우면 설정에서 힌트나 단어 카드를 켜 보세요.',
@@ -250,7 +253,7 @@
   }
   function save() {
     try {
-      if (queue[qi]) positions[settings.level] = queue[qi][0];
+      if (queue[qi]) positions[settings.level] = keyOf(queue[qi]);
       localStorage.setItem(STORE_KEY, JSON.stringify({ settings, results, pos: positions, seeds }));
     } catch (e) { /* 浏览器不让存时照常练习 */ }
   }
@@ -258,7 +261,7 @@
   function defaults() {
     const nav = ((navigator.languages && navigator.languages[0]) || navigator.language || 'en').toLowerCase();
     const ui = nav.startsWith('ko') ? 'ko' : nav.startsWith('zh') ? 'zh' : 'en';
-    return { ui, mean: ui === 'ko' ? 'ko' : 'en', mode: 'py', level: '1', onlyWrong: false, shuffle: false, toneReq: false, hint: 'cross' };
+    return { ui, mean: ui === 'ko' ? 'ko' : 'en', mode: 'py', level: '1', onlyWrong: false, shuffle: false, toneReq: false, hint: 'cross', autoPlay: true };
   }
   function sanitize(s) {
     const d = defaults();
@@ -272,6 +275,7 @@
       shuffle: s.shuffle === true,
       toneReq: s.toneReq === true,
       hint: pick(s.hint, ['none', 'cross', 'cards'], d.hint),
+      autoPlay: s.autoPlay !== false,
     };
   }
 
@@ -335,6 +339,31 @@
     return a;
   }
 
+  // ---------- 朗读 ----------
+  // 录音放在 audio/hsk<级别>/<题目id>-<行号>.mp3；没有文件的句子不显示按钮
+  const audioMissing = new Set();
+  function audioUrl(key) {
+    const [id, li] = key.split(':');
+    return `audio/hsk${settings.level}/${id}-${li}.mp3`;
+  }
+  function stopAudio() {
+    if (cur && cur.audio) { cur.audio.pause(); cur.audio = null; }
+  }
+  function setupAudio(key, btn) {
+    if (audioMissing.has(key)) { btn.hidden = true; return null; }
+    const a = new Audio();
+    a.preload = 'auto';
+    a.addEventListener('error', () => { audioMissing.add(key); btn.hidden = true; if (cur && cur.audio === a) cur.audio = null; });
+    a.src = audioUrl(key);
+    return a;
+  }
+  function play() {
+    if (!cur || !cur.audio) return;
+    cur.audio.currentTime = 0;
+    cur.audio.play().catch(() => { /* 浏览器要求先有点击才能自动播放 */ });
+  }
+  const SPEAKER = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>';
+
   // ---------- 界面 ----------
   function applyI18n() {
     document.documentElement.lang = UI_TAG[settings.ui];
@@ -348,6 +377,8 @@
     document.querySelectorAll('#uiSeg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.ui === settings.ui)));
   }
 
+  // 一题一句：对话的问句和答句是前后两道题；打乱顺序时按整组对话打乱，问句仍在答句前面
+  const keyOf = e => `${e[0][0]}:${e[1]}`;
   function buildQueue() {
     const lv = settings.level;
     let items = DATA[lv] ? DATA[lv].items : [];
@@ -355,7 +386,9 @@
       if (!seeds[lv]) seeds[lv] = Math.floor(Math.random() * 2147483647) + 1;
       items = shuffled(items, seeds[lv]);
     }
-    queue = settings.onlyWrong ? items.filter(x => results[x[0]] === 'bad') : items;
+    const all = [];
+    items.forEach(raw => raw[3].forEach((l, li) => all.push([raw, li])));
+    queue = settings.onlyWrong ? all.filter(e => results[keyOf(e)] === 'bad') : all;
   }
 
   function start(preferId, focus) {
@@ -367,14 +400,15 @@
       if (seq !== loadSeq) return;
       buildQueue();
       if (!queue.length) { showDone(true); return; }
-      let i = preferId ? queue.findIndex(x => x[0] === preferId) : -1;
-      if (i < 0) i = queue.findIndex(x => !results[x[0]]);
+      let i = preferId ? queue.findIndex(e => keyOf(e) === preferId) : -1;
+      if (i < 0) i = queue.findIndex(e => !results[keyOf(e)]);
       qi = i < 0 ? 0 : i;
       renderQuestion(focus);
     }, () => { if (seq === loadSeq) showError(lv); });
   }
 
   function showLoading(lv) {
+    stopAudio();
     state = 'loading';
     cur = null;
     queue = [];
@@ -411,12 +445,13 @@
   }
 
   function renderQuestion(focus = true) {
-    const raw = queue[qi];
+    const [raw, li] = queue[qi];
     const item = parseItem(raw, DATA[settings.level].words);
     const py = settings.mode === 'py';
+    stopAudio();
     state = 'typing';
     lastGrades = null;
-    cur = { item, items: [], lines: [], recorded: false, firstOk: null, focus: 0 };
+    cur = { item, li, key: keyOf(queue[qi]), items: [], lines: [], recorded: false, firstOk: null, focus: 0, audio: null };
     $('done').hidden = true;
     $('quiz').hidden = false;
     $('actions').hidden = false;
@@ -425,12 +460,18 @@
 
     const box = $('lines');
     box.textContent = '';
-    item.lines.forEach((line, li) => {
+    [item.lines[li]].forEach(line => {
       const lineEl = el('div', 'line');
       const prow = el('div', 'prompt-row');
-      if (item.kind === 'd') prow.append(span(li % 2 ? 'B' : 'A', 'spk'));
+      const playBtn = el('button', 'play');
+      playBtn.type = 'button';
+      playBtn.innerHTML = SPEAKER;
+      playBtn.setAttribute('aria-label', `${t('play')} (Ctrl)`);
+      playBtn.title = `${t('play')} (Ctrl)`;
+      playBtn.addEventListener('click', () => { play(); if (state === 'typing') focusSlot(cur.focus || 0); });
+      cur.audio = setupAudio(cur.key, playBtn);
       const prompt = el('p', 'prompt');
-      prow.append(prompt);
+      prow.append(playBtn, prompt);
       const slots = el('div', 'slots');
       slots.setAttribute('role', 'group');
       line.words.forEach(w => {
@@ -459,7 +500,7 @@
         input.style.width = py ? `${Math.max(3, w.py.length) + 1.4}ch` : `${w.syl.length * 1.05 + 0.9}em`;
         slot.append(hint, input, ans);
         slots.append(slot);
-        cur.items.push({ w, el: input, slot, hint, ans, revealed: false, li });
+        cur.items.push({ w, el: input, slot, hint, ans, revealed: false });
       });
       lineEl.append(prow, slots);
       box.append(lineEl);
@@ -476,6 +517,7 @@
     renderActions();
     save();
     if (focus && cur.items[0]) cur.items[0].el.focus({ preventScroll: true });
+    if (settings.autoPlay) play();
   }
 
   function refreshPrompts() {
@@ -519,8 +561,8 @@
     const lv = settings.level;
     $('levelTag').textContent = `HSK ${lv.replace('-', '–')}`;
     $('count').textContent = queue.length && (state === 'typing' || state === 'checked') ? t('count', { n: qi + 1, t: queue.length }) : '';
-    const ok = queue.filter(x => results[x[0]] === 'ok').length;
-    const bad = queue.filter(x => results[x[0]] === 'bad').length;
+    const ok = queue.filter(e => results[keyOf(e)] === 'ok').length;
+    const bad = queue.filter(e => results[keyOf(e)] === 'bad').length;
     const pct = queue.length ? Math.round(((ok + bad) / queue.length) * 100) : 0;
     $('pct').textContent = queue.length ? `${pct}%` : '';
     $('barFill').style.width = `${pct}%`;
@@ -708,7 +750,7 @@
     const grades = items.map(grade);
     const allOk = grades.every(g => g === 'ok');
     if (!cur.recorded) {
-      results[cur.item.id] = allOk ? 'ok' : 'bad';
+      results[cur.key] = allOk ? 'ok' : 'bad';
       cur.recorded = true;
       cur.firstOk = allOk;
     }
@@ -811,7 +853,7 @@
 
   // ---------- 换题 ----------
   function leave() {
-    prev = cur && cur.recorded ? { zh: cur.item.lines.map(l => l.zh).join(' '), line: cur.item.lines[0], ok: cur.firstOk } : null;
+    prev = cur && cur.recorded ? { zh: cur.item.lines[cur.li].zh, line: cur.item.lines[cur.li], ok: cur.firstOk } : null;
   }
   function next() {
     if (!queue.length || !cur) return;
@@ -826,6 +868,7 @@
   }
 
   function showDone(empty) {
+    stopAudio();
     state = empty ? 'empty' : 'done';
     cur = null;
     $('quiz').hidden = true;
@@ -834,8 +877,8 @@
     renderMeta();
     renderPrev();
     const lv = settings.level;
-    const ok = queue.filter(x => results[x[0]] === 'ok').length;
-    const bad = queue.filter(x => results[x[0]] === 'bad').length;
+    const ok = queue.filter(e => results[keyOf(e)] === 'ok').length;
+    const bad = queue.filter(e => results[keyOf(e)] === 'bad').length;
     $('doneTitle').textContent = empty ? t('noWrong', { lv }) : t('done', { lv });
     $('doneSum').textContent = empty ? '' : t('doneSum', { ok, bad });
     $('btnRestart').hidden = empty;
@@ -848,6 +891,7 @@
   // ---------- 键盘 ----------
   document.addEventListener('keydown', e => {
     if (e.isComposing || e.keyCode === 229 || dlg.open) return;
+    if (e.key === 'Control') { if (!e.repeat) play(); return; }
     if (e.altKey || e.ctrlKey || e.metaKey) return;
     const target = e.target;
     const inSlot = target.classList && target.classList.contains('slot-in');
@@ -951,6 +995,7 @@
     form.shuffle.checked = settings.shuffle;
     form.onlyWrong.checked = settings.onlyWrong;
     form.hint.value = settings.hint;
+    form.autoPlay.checked = settings.autoPlay;
     form.tone.value = settings.toneReq ? 'req' : 'opt';
     form.mean.value = settings.mean;
   }
@@ -967,6 +1012,7 @@
     }
     if (name === 'tone') settings.toneReq = form.tone.value === 'req';
     else if (name === 'hint') { settings.hint = form.hint.value; refreshHints(); }
+    else if (name === 'autoPlay') settings.autoPlay = form.autoPlay.checked;
     else if (name === 'mean') { settings.mean = form.mean.value; refreshAll(); }
     save();
   });
