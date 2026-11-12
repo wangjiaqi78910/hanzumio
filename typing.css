@@ -103,3 +103,24 @@ dialog input{accent-color:var(--accent);width:18px;height:18px;margin:0}
   .bar i,.slot-in{transition:none}
   .slots.nudge{animation:none}
 }
+
+/* 对话题：每行一个释义 + 一排空格；词卡可放在上方当提示 */
+.quiz{display:flex;flex-direction:column}
+.lines{order:0;display:flex;flex-direction:column;gap:clamp(16px,3vw,26px)}
+.feedback{order:1}
+.cards{order:2}
+.quiz.cards-top .cards{order:-1;margin:0 auto 22px}
+.line{display:flex;flex-direction:column;gap:clamp(10px,2vw,16px)}
+.prompt-row{display:flex;justify-content:center;align-items:baseline;gap:10px}
+.prompt-row .prompt{margin:0}
+.spk{flex:none;font-size:.78rem;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:0 6px;line-height:1.5;background:var(--soft)}
+.lines .prompt{font-size:clamp(1.15rem,1rem + 1vw,1.5rem)}
+.slot.fixed .pch{color:var(--ink)}
+.slot.focus .slot-in{background:var(--soft)}
+.card.focus{box-shadow:0 0 0 2px var(--accent) inset}
+.focus{color:var(--muted);font-size:.88rem}
+.focus b{color:var(--ink);font-weight:600;margin-left:4px}
+.levelbtn{font:inherit;font-size:.8rem;cursor:pointer;color:var(--ink);line-height:1.6}
+.levelbtn:empty{display:none}
+.loading{color:var(--muted);text-align:center;padding:40px 0}
+dialog fieldset.col{flex-direction:column;gap:2px}

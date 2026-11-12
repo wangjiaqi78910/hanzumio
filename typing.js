@@ -1,9 +1,12 @@
 // 汉字打字练习：看释义，按词写出拼音或汉字。
+// 题目按级别从 typing-data/hsk*.js 按需加载（由 tools/typing-data 里的脚本从 HSK 词表生成）。
 (() => {
   'use strict';
 
-  const DATA = window.HANZUMIO_TYPING;
-  const STORE_KEY = 'hanzumio-typing-v1';
+  const LEVELS = ['1', '2', '3', '4', '5', '6', '7-9'];
+  const STORE_KEY = 'hanzumio-typing-v2';
+  const DATA = window.HANZUMIO_TYPING_LEVELS = window.HANZUMIO_TYPING_LEVELS || {};
+  const HAN = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
 
   // ---------- 界面文字 ----------
   const STR = {
@@ -18,16 +21,18 @@
       pyImeHint: '拼音模式请用英文键盘，不要用中文输入法选字。',
       slotPy: '第 {i} 个词，{n} 个音节', slotHz: '第 {i} 个词，{n} 个字',
       stOk: '正确', stTone: '声调不对', stBad: '写错了', stEmpty: '没写', stShown: '看了答案',
-      done: '这一组练完了！', doneSum: '答对 {ok} 题，答错 {bad} 题。', noWrong: '还没有错题。',
-      restart: '从头再来', practiceWrong: '练错题', showAll: '练全部',
-      level: '级别', all: '全部', onlyWrong: '只练错题', tones: '声调（拼音模式）', toneReq: '必须写', toneOpt: '可以不写',
-      hint: '在空格上方显示提示', hintNote: '拼音模式显示汉字，汉字模式显示拼音。', meaning: '释义语言',
-      reset: '清空记录', resetAsk: '清空这个浏览器里的打字练习记录？', close: '完成',
+      done: 'HSK {lv} 这一级练完了！', doneSum: '答对 {ok} 题，答错 {bad} 题。', noWrong: 'HSK {lv} 还没有错题。',
+      restart: '从头再来', practiceWrong: '练错题', showAll: '练全部', retryLoad: '重新加载',
+      level: '级别', onlyWrong: '只练错题', shuffle: '打乱顺序', tones: '声调（拼音模式）', toneReq: '必须写（用数字标调，如 ni3）', toneOpt: '可以不写（像输入法一样只打字母）',
+      hint: '提示', hintNone: '不提示', hintCross: '在空格上方提示（拼音模式显示汉字，汉字模式显示拼音）', hintCards: '显示词卡（词性、拼音、释义）',
+      meaning: '释义语言', reset: '清空记录', resetAsk: '清空这个浏览器里的打字练习记录？', close: '完成',
       helpTitle: '怎么输入', note: '练习记录只保存在这个浏览器里，不会上传。',
+      loading: '正在加载 HSK {lv} 的题目…', loadError: 'HSK {lv} 的题目加载失败，请检查网络后重试。', focusWord: '本题词',
       help: [
-        '拼音模式：用数字标声调，打 ni3 会变成 nǐ；轻声不用标；ü 用 v 打，lv4 会变成 lǜ。按空格到下一个词，在最后一个词按空格或回车提交。',
+        '每道题是一组 HSK 词汇的例句或一问一答：看每句的意思，按词把中文写出来。标点和数字已经填好，不用打。',
+        '拼音模式：像输入法一样只打字母就行，可以连着打（woshixuesheng），字母会自动分到后面的空格里，按空格也能跳到下一个词；在最后一个词按空格或回车提交。想练声调可以用数字标调，打 ni3 会变成 nǐ，轻声不用标；ü 用 v 打，lv4 会变成 lǜ；儿化 nar、naer、nar3 都行。提交后每个词下面会显示带声调的拼音。',
         '汉字模式：用电脑或手机自带的中文输入法。输入法选字时按的空格和回车留给输入法，不会跳词。一次打出好几个词也可以，多出来的字会自动排到后面的空格里。',
-        '绿色是对的，黄色是拼音对了但声调不对，红色是写错或没写。按 Esc 可以看当前这个词的答案，提交后点「再练一遍」只重写错的词。',
+        '绿色是对的，黄色是拼音对了但声调不对，红色是写错或没写。按 Esc 可以看当前这个词的答案，提交后点「再练一遍」只重写错的词。觉得难可以在设置里打开提示或词卡。',
       ],
     },
     en: {
@@ -41,16 +46,18 @@
       pyImeHint: 'In Pinyin mode, type with a Latin keyboard rather than a Chinese input method.',
       slotPy: 'Word {i}, {n} syllables', slotHz: 'Word {i}, {n} characters',
       stOk: 'correct', stTone: 'wrong tone', stBad: 'wrong', stEmpty: 'blank', stShown: 'answer shown',
-      done: 'You have finished this set!', doneSum: '{ok} right, {bad} wrong.', noWrong: 'No mistakes to practise yet.',
-      restart: 'Start again', practiceWrong: 'Practise mistakes', showAll: 'Practise all',
-      level: 'Level', all: 'All', onlyWrong: 'Mistakes only', tones: 'Tones (Pinyin mode)', toneReq: 'Required', toneOpt: 'Optional',
-      hint: 'Show a hint above each blank', hintNote: 'Pinyin mode shows the characters; Hanzi mode shows the pinyin.', meaning: 'Meaning in',
-      reset: 'Clear progress', resetAsk: 'Clear your typing progress in this browser?', close: 'Done',
+      done: 'You have finished HSK {lv}!', doneSum: '{ok} right, {bad} wrong.', noWrong: 'No mistakes in HSK {lv} to practise yet.',
+      restart: 'Start again', practiceWrong: 'Practise mistakes', showAll: 'Practise all', retryLoad: 'Reload',
+      level: 'Level', onlyWrong: 'Mistakes only', shuffle: 'Shuffle', tones: 'Tones (Pinyin mode)', toneReq: 'Required (type tone numbers, e.g. ni3)', toneOpt: 'Optional (letters only, like an input method)',
+      hint: 'Hints', hintNone: 'None', hintCross: 'Above each blank (characters in Pinyin mode, pinyin in Hanzi mode)', hintCards: 'Word cards (part of speech, pinyin, meaning)',
+      meaning: 'Meaning in', reset: 'Clear progress', resetAsk: 'Clear your typing progress in this browser?', close: 'Done',
       helpTitle: 'How to type', note: 'Your progress is kept only in this browser and is never uploaded.',
+      loading: 'Loading HSK {lv}…', loadError: 'Could not load HSK {lv}. Check your connection and try again.', focusWord: 'Word',
       help: [
-        'Pinyin mode: type tones as numbers — ni3 becomes nǐ; leave neutral tones bare; type ü as v, so lv4 becomes lǜ. Space moves to the next word; on the last word, Space or Enter checks the sentence.',
+        'Each question is an example sentence or a short Q&A for one HSK word: read the meaning of each line and type the Chinese word by word. Punctuation and numbers are filled in for you.',
+        'Pinyin mode: just type the letters, like in a Chinese input method. You can type straight through (woshixuesheng) and the letters flow into the next blanks, or press Space to move to the next word; on the last word, Space or Enter checks the answer. To practise tones, type them as numbers — ni3 becomes nǐ, neutral tones stay bare; type ü as v (lv4 → lǜ); erhua as nar, naer or nar3. After checking, the pinyin with tone marks is shown under every word.',
         'Hanzi mode: use the Chinese input method on your computer or phone. Space and Enter pressed while picking characters stay with the input method and never skip a word. You can type several words at once; extra characters flow into the next blanks.',
-        'Green is right, amber means the pinyin is right but the tone is not, red is wrong or blank. Press Esc to see the answer for the current word. After checking, “Try again” clears only the words you missed.',
+        'Green is right, amber means the pinyin is right but the tone is not, red is wrong or blank. Press Esc to see the answer for the current word. After checking, “Try again” clears only the words you missed. If it is too hard, turn on hints or word cards in Settings.',
       ],
     },
     ko: {
@@ -64,23 +71,26 @@
       pyImeHint: '병음 모드에서는 중국어 입력기 대신 영문 자판으로 입력하세요.',
       slotPy: '{i}번째 단어, {n}음절', slotHz: '{i}번째 단어, {n}글자',
       stOk: '정답', stTone: '성조 오류', stBad: '오답', stEmpty: '미입력', stShown: '답 확인',
-      done: '이 세트를 다 풀었어요!', doneSum: '{ok}문제 맞히고 {bad}문제 틀렸어요.', noWrong: '아직 틀린 문제가 없어요.',
-      restart: '처음부터', practiceWrong: '틀린 문제 풀기', showAll: '전체 풀기',
-      level: '급수', all: '전체', onlyWrong: '틀린 문제만', tones: '성조 (병음 모드)', toneReq: '반드시 입력', toneOpt: '생략 가능',
-      hint: '빈칸 위에 힌트 보기', hintNote: '병음 모드에서는 한자를, 한자 모드에서는 병음을 보여 줘요.', meaning: '뜻 언어',
-      reset: '기록 지우기', resetAsk: '이 브라우저에 저장된 타자 연습 기록을 지울까요?', close: '완료',
+      done: 'HSK {lv}을(를) 다 풀었어요!', doneSum: '{ok}문제 맞히고 {bad}문제 틀렸어요.', noWrong: 'HSK {lv}에는 아직 틀린 문제가 없어요.',
+      restart: '처음부터', practiceWrong: '틀린 문제 풀기', showAll: '전체 풀기', retryLoad: '다시 불러오기',
+      level: '급수', onlyWrong: '틀린 문제만', shuffle: '순서 섞기', tones: '성조 (병음 모드)', toneReq: '반드시 입력 (숫자로 표시, 예: ni3)', toneOpt: '생략 가능 (입력기처럼 글자만 입력)',
+      hint: '힌트', hintNone: '없음', hintCross: '빈칸 위에 표시 (병음 모드는 한자, 한자 모드는 병음)', hintCards: '단어 카드 (품사, 병음, 뜻)',
+      meaning: '뜻 언어', reset: '기록 지우기', resetAsk: '이 브라우저에 저장된 타자 연습 기록을 지울까요?', close: '완료',
       helpTitle: '입력 방법', note: '연습 기록은 이 브라우저에만 저장되며 업로드되지 않아요.',
+      loading: 'HSK {lv} 문제를 불러오는 중…', loadError: 'HSK {lv} 문제를 불러오지 못했어요. 연결을 확인하고 다시 시도하세요.', focusWord: '단어',
       help: [
-        '병음 모드: 성조는 숫자로 입력하세요. ni3을 치면 nǐ로 바뀌고, 경성은 숫자를 붙이지 않아도 돼요. ü는 v로 입력해요(lv4 → lǜ). 스페이스를 누르면 다음 단어로 가고, 마지막 단어에서 스페이스나 엔터를 누르면 제출돼요.',
+        '각 문제는 HSK 단어 하나의 예문 또는 짧은 문답이에요. 각 줄의 뜻을 보고 중국어를 단어별로 입력하세요. 문장 부호와 숫자는 미리 채워져 있어요.',
+        '병음 모드: 중국어 입력기처럼 알파벳만 입력하면 돼요. 이어서 쳐도(woshixuesheng) 글자가 다음 빈칸으로 자동으로 넘어가고, 스페이스로 다음 단어로 갈 수도 있어요. 마지막 단어에서 스페이스나 엔터를 누르면 제출돼요. 성조를 연습하려면 숫자로 입력하세요. ni3을 치면 nǐ로 바뀌고, 경성은 숫자를 붙이지 않아요. ü는 v로 입력해요(lv4 → lǜ). 얼화는 nar, naer, nar3 모두 돼요. 제출하면 단어마다 성조가 표시된 병음이 보여요.',
         '한자 모드: 컴퓨터나 휴대폰의 중국어 입력기를 쓰세요. 글자를 고를 때 누르는 스페이스와 엔터는 입력기가 처리하므로 단어를 건너뛰지 않아요. 여러 단어를 한 번에 입력해도 남는 글자는 다음 빈칸으로 넘어가요.',
-        '초록색은 정답, 노란색은 병음은 맞지만 성조가 틀린 것, 빨간색은 틀렸거나 비워 둔 단어예요. Esc를 누르면 지금 단어의 답을 볼 수 있어요. 제출한 뒤 ‘다시 하기’를 누르면 틀린 단어만 다시 써요.',
+        '초록색은 정답, 노란색은 병음은 맞지만 성조가 틀린 것, 빨간색은 틀렸거나 비워 둔 단어예요. Esc를 누르면 지금 단어의 답을 볼 수 있어요. 제출한 뒤 ‘다시 하기’를 누르면 틀린 단어만 다시 써요. 어려우면 설정에서 힌트나 단어 카드를 켜 보세요.',
       ],
     },
   };
   const POS = {
     n: ['名词', 'noun', '명사'], v: ['动词', 'verb', '동사'], a: ['形容词', 'adj.', '형용사'], d: ['副词', 'adv.', '부사'],
     r: ['代词', 'pron.', '대명사'], m: ['数词', 'number', '수사'], q: ['量词', 'measure', '양사'], p: ['介词', 'prep.', '개사'],
-    c: ['连词', 'conj.', '접속사'], u: ['助词', 'particle', '조사'], mv: ['能愿动词', 'modal', '조동사'], x: ['常用语', 'phrase', '표현'],
+    c: ['连词', 'conj.', '접속사'], u: ['助词', 'particle', '조사'], mv: ['能愿动词', 'modal', '조동사'], i: ['叹词', 'interj.', '감탄사'],
+    o: ['拟声词', 'onomat.', '의성어'], af: ['词缀', 'affix', '접사'], ci: ['成语', 'idiom', '성어'], x: ['短语', 'phrase', '표현'],
   };
   const UI_TAG = { zh: 'zh-Hans', en: 'en', ko: 'ko' };
   const UI_IDX = { zh: 0, en: 1, ko: 2 };
@@ -128,13 +138,15 @@
     return sylls.map((s, k) => (k > 0 && /^[aeoāáǎàēéěèōóǒò]/i.test(s) ? "'" + s : s)).join('');
   }
 
-  function parseExpected(py, hz) {
+  // 数据里的拼音按字用 - 隔开：xué-sheng；儿化的「儿」是 r
+  function parseExpected(sylStr, hz) {
     const chars = [...hz];
-    return py.trim().split(/\s+/).map((tok, k) => {
+    return sylStr.split('-').map((tok, k) => {
       const alts = tok.split('/');
       const acc = new Set(alts.map(toneOf));
       (LENIENT[chars[k]] || []).forEach(x => acc.add(x));
-      return { b: stripMarks(alts[0]).toLowerCase(), t: toneOf(alts[0]), acc, disp: alts[0] };
+      const b = stripMarks(alts[0]).toLowerCase();
+      return { b, t: toneOf(alts[0]), acc, disp: alts[0], er: b === 'r' };
     });
   }
 
@@ -157,8 +169,22 @@
   function alignPinyin(user, syl) {
     let i = 0;
     const tones = [];
-    for (const s of syl) {
+    for (let k = 0; k < syl.length; k++) {
+      const s = syl[k];
       let tone = null;
+      if (s.er) {
+        // 儿化：r、er 都行；后面的数字属于前一个音节（nar3）
+        const u = user[i];
+        if (u && u.c === 'e' && user[i + 1] && user[i + 1].c === 'r') i += 2;
+        else if (u && u.c === 'r') i += 1;
+        else return null;
+        if (user[i] && user[i].d !== undefined) {
+          if (k > 0 && tones[k - 1] == null) tones[k - 1] = user[i].d;
+          i++;
+        }
+        tones.push(5);
+        continue;
+      }
       for (const letter of s.b) {
         const u = user[i];
         if (!u || u.d !== undefined || u.c !== letter) return null;
@@ -183,19 +209,40 @@
   }
 
   const cleanHz = v => v.normalize('NFC').replace(/[\s\p{P}\p{S}]/gu, '');
-  const hasHan = v => /\p{Script=Han}/u.test(v);
+  const hasHan = v => HAN.test(v);
 
   // ---------- 题库 ----------
-  function makeWord([hz, py, pos, en, ko]) {
-    const syl = parseExpected(py, hz);
-    const g = en ? [en, ko] : DATA.gloss[hz] || ['', ''];
-    return { hz, pos, syl, py: joinPinyin(syl.map(x => x.disp)), gloss: { en: g[0], ko: g[1] } };
+  function loadLevel(lv) {
+    if (DATA[lv]) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = `typing-data/hsk${lv}.js`;
+      s.async = true;
+      s.onload = () => (DATA[lv] ? resolve() : reject(new Error('empty')));
+      s.onerror = () => { s.remove(); reject(new Error('load')); };
+      document.head.append(s);
+    });
   }
-  const SENTENCES = DATA.sentences.map(s => ({
-    id: s.id, lv: s.lv, en: s.en, ko: s.ko,
-    words: s.w.map(tok => (tok.length === 1 ? { punct: tok[0] } : makeWord(tok))),
-  }));
-  const sentenceText = s => s.words.map(w => w.punct || w.hz).join('');
+
+  function makeWord(hz, sylStr, dict) {
+    const syl = parseExpected(sylStr, hz);
+    const e = dict[`${hz}|${sylStr.replace(/-/g, '').toLowerCase()}`] || dict[hz];
+    return { hz, syl, py: joinPinyin(syl.map(x => x.disp)), pos: e ? e[1] : '', gloss: { en: e ? e[2] : '', ko: e ? e[3] : '' } };
+  }
+
+  function parseItem(raw, dict) {
+    const [id, kind, head, lines] = raw;
+    return {
+      id, kind, head,
+      lines: lines.map(([w, p, en, ko]) => {
+        const toks = w.split(' ');
+        const pys = p ? p.split(' ') : [];
+        let pi = 0;
+        const words = toks.map(tk => (HAN.test(tk) ? makeWord(tk, pys[pi++] || '', dict) : { fixed: tk }));
+        return { words, en, ko, zh: toks.join('') };
+      }),
+    };
+  }
 
   // ---------- 存储 ----------
   function load() {
@@ -203,14 +250,15 @@
   }
   function save() {
     try {
-      localStorage.setItem(STORE_KEY, JSON.stringify({ settings, results, pos: queue[qi] ? queue[qi].id : null }));
+      if (queue[qi]) positions[settings.level] = queue[qi][0];
+      localStorage.setItem(STORE_KEY, JSON.stringify({ settings, results, pos: positions, seeds }));
     } catch (e) { /* 浏览器不让存时照常练习 */ }
   }
 
   function defaults() {
     const nav = ((navigator.languages && navigator.languages[0]) || navigator.language || 'en').toLowerCase();
     const ui = nav.startsWith('ko') ? 'ko' : nav.startsWith('zh') ? 'zh' : 'en';
-    return { ui, mean: ui === 'ko' ? 'ko' : 'en', mode: 'py', level: 'all', onlyWrong: false, toneReq: true, hint: false };
+    return { ui, mean: ui === 'ko' ? 'ko' : 'en', mode: 'py', level: '1', onlyWrong: false, shuffle: false, toneReq: false, hint: 'cross' };
   }
   function sanitize(s) {
     const d = defaults();
@@ -219,10 +267,11 @@
       ui: pick(s.ui, ['zh', 'en', 'ko'], d.ui),
       mean: pick(s.mean, ['en', 'ko'], d.mean),
       mode: pick(s.mode, ['py', 'hz'], d.mode),
-      level: pick(s.level, ['all', '1', '2', '3'], d.level),
+      level: pick(s.level, LEVELS, d.level),
       onlyWrong: s.onlyWrong === true,
-      toneReq: s.toneReq !== false,
-      hint: s.hint === true,
+      shuffle: s.shuffle === true,
+      toneReq: s.toneReq === true,
+      hint: pick(s.hint, ['none', 'cross', 'cards'], d.hint),
     };
   }
 
@@ -230,12 +279,15 @@
   const saved = load();
   const settings = sanitize(saved.settings || {});
   const results = saved.results && typeof saved.results === 'object' ? saved.results : {};
+  const positions = saved.pos && typeof saved.pos === 'object' ? saved.pos : {};
+  const seeds = saved.seeds && typeof saved.seeds === 'object' ? saved.seeds : {};
   let queue = [];
   let qi = 0;
-  let state = 'typing'; // typing | checked | done | empty
+  let state = 'loading'; // loading | error | typing | checked | done | empty
   let cur = null;
   let prev = null;
   let lastGrades = null;
+  let loadSeq = 0;
 
   const $ = id => document.getElementById(id);
   const dlg = $('settings');
@@ -253,6 +305,35 @@
     e.textContent = text;
     return e;
   }
+  function el(tag, cls) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    return e;
+  }
+  function meaningOf(line) {
+    const other = settings.mean === 'en' ? 'ko' : 'en';
+    if (line[settings.mean]) return [line[settings.mean], settings.mean];
+    if (line[other]) return [line[other], other];
+    return ['', ''];
+  }
+
+  function mulberry32(a) {
+    return () => {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      let x = Math.imul(a ^ (a >>> 15), 1 | a);
+      x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x;
+      return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function shuffled(arr, seed) {
+    const a = arr.slice();
+    const rnd = mulberry32(seed);
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(rnd() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
 
   // ---------- 界面 ----------
   function applyI18n() {
@@ -268,68 +349,128 @@
   }
 
   function buildQueue() {
-    queue = SENTENCES.filter(s => (settings.level === 'all' || String(s.lv) === settings.level)
-      && (!settings.onlyWrong || results[s.id] === 'bad'));
+    const lv = settings.level;
+    let items = DATA[lv] ? DATA[lv].items : [];
+    if (settings.shuffle) {
+      if (!seeds[lv]) seeds[lv] = Math.floor(Math.random() * 2147483647) + 1;
+      items = shuffled(items, seeds[lv]);
+    }
+    queue = settings.onlyWrong ? items.filter(x => results[x[0]] === 'bad') : items;
   }
 
   function start(preferId, focus) {
-    buildQueue();
-    if (!queue.length) { showDone(true); return; }
-    let i = preferId ? queue.findIndex(s => s.id === preferId) : -1;
-    if (i < 0) i = queue.findIndex(s => !results[s.id]);
-    qi = i < 0 ? 0 : i;
-    renderQuestion(focus);
+    const lv = settings.level;
+    const seq = ++loadSeq;
+    prev = null;
+    if (!DATA[lv]) showLoading(lv);
+    loadLevel(lv).then(() => {
+      if (seq !== loadSeq) return;
+      buildQueue();
+      if (!queue.length) { showDone(true); return; }
+      let i = preferId ? queue.findIndex(x => x[0] === preferId) : -1;
+      if (i < 0) i = queue.findIndex(x => !results[x[0]]);
+      qi = i < 0 ? 0 : i;
+      renderQuestion(focus);
+    }, () => { if (seq === loadSeq) showError(lv); });
+  }
+
+  function showLoading(lv) {
+    state = 'loading';
+    cur = null;
+    queue = [];
+    $('done').hidden = true;
+    $('actions').hidden = true;
+    $('quiz').hidden = false;
+    $('focus').hidden = true;
+    $('cards').hidden = true;
+    $('feedback').textContent = '';
+    const box = $('lines');
+    box.textContent = '';
+    const p = el('p', 'loading');
+    p.textContent = t('loading', { lv });
+    box.append(p);
+    renderMeta();
+    renderPrev();
+  }
+
+  function showError(lv) {
+    state = 'error';
+    cur = null;
+    queue = [];
+    $('quiz').hidden = true;
+    $('actions').hidden = true;
+    $('done').hidden = false;
+    $('doneTitle').textContent = t('loadError', { lv });
+    $('doneSum').textContent = '';
+    $('btnRestart').hidden = true;
+    $('btnPracticeWrong').hidden = true;
+    $('btnShowAll').hidden = true;
+    $('btnRetryLoad').hidden = false;
+    renderMeta();
+    $('doneTitle').focus();
   }
 
   function renderQuestion(focus = true) {
-    const s = queue[qi];
+    const raw = queue[qi];
+    const item = parseItem(raw, DATA[settings.level].words);
     const py = settings.mode === 'py';
     state = 'typing';
     lastGrades = null;
-    cur = { s, items: [], recorded: false, firstOk: null, focus: 0 };
+    cur = { item, items: [], lines: [], recorded: false, firstOk: null, focus: 0 };
     $('done').hidden = true;
     $('quiz').hidden = false;
     $('actions').hidden = false;
+    $('focus').hidden = true;
+    $('quiz').classList.remove('cards-top');
 
-    const slots = $('slots');
-    slots.textContent = '';
-    slots.classList.remove('checked');
-    slots.classList.toggle('with-hint', settings.hint);
-    s.words.forEach(w => {
-      const slot = document.createElement('div');
-      const hint = span('', 'hint', py ? 'zh-Hans' : PY_TAG);
-      const ans = span('', 'ans');
-      if (w.punct) {
-        slot.className = 'slot punct';
-        slot.setAttribute('aria-hidden', 'true');
-        slot.append(hint, span(w.punct, 'pch', 'zh-Hans'), ans);
+    const box = $('lines');
+    box.textContent = '';
+    item.lines.forEach((line, li) => {
+      const lineEl = el('div', 'line');
+      const prow = el('div', 'prompt-row');
+      if (item.kind === 'd') prow.append(span(li % 2 ? 'B' : 'A', 'spk'));
+      const prompt = el('p', 'prompt');
+      prow.append(prompt);
+      const slots = el('div', 'slots');
+      slots.setAttribute('role', 'group');
+      line.words.forEach(w => {
+        const slot = el('div', 'slot');
+        const hint = span('', 'hint', py ? 'zh-Hans' : PY_TAG);
+        const ans = span('', 'ans');
+        if (w.fixed) {
+          const content = /[\p{L}\p{N}]/u.test(w.fixed);
+          slot.className = content ? 'slot punct fixed' : 'slot punct';
+          if (!content) slot.setAttribute('aria-hidden', 'true');
+          slot.append(hint, span(w.fixed, 'pch', 'zh-Hans'), ans);
+          slots.append(slot);
+          return;
+        }
+        const i = cur.items.length;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'slot-in';
+        input.dataset.i = i;
+        input.lang = py ? PY_TAG : 'zh-Hans';
+        input.autocomplete = 'off';
+        input.spellcheck = false;
+        input.setAttribute('autocapitalize', 'none');
+        input.setAttribute('autocorrect', 'off');
+        input.setAttribute('enterkeyhint', 'done');
+        input.style.width = py ? `${Math.max(3, w.py.length) + 1.4}ch` : `${w.syl.length * 1.05 + 0.9}em`;
+        slot.append(hint, input, ans);
         slots.append(slot);
-        return;
-      }
-      const i = cur.items.length;
-      const el = document.createElement('input');
-      el.type = 'text';
-      el.className = 'slot-in';
-      el.dataset.i = i;
-      el.lang = py ? PY_TAG : 'zh-Hans';
-      el.autocomplete = 'off';
-      el.spellcheck = false;
-      el.setAttribute('autocapitalize', 'none');
-      el.setAttribute('autocorrect', 'off');
-      el.setAttribute('enterkeyhint', 'done');
-      el.style.width = py ? `${Math.max(3, w.py.length) + 1.4}ch` : `${w.syl.length * 1.05 + 0.9}em`;
-      slot.className = 'slot';
-      slot.append(hint, el, ans);
-      slots.append(slot);
-      cur.items.push({ w, el, slot, hint, ans, revealed: false });
+        cur.items.push({ w, el: input, slot, hint, ans, revealed: false, li });
+      });
+      lineEl.append(prow, slots);
+      box.append(lineEl);
+      cur.lines.push({ line, prompt, slots });
     });
+    refreshPrompts();
     refreshSlotLabels();
     refreshHints();
     $('feedback').textContent = '';
     $('feedback').classList.remove('good');
-    $('cards').hidden = true;
-    $('cards').textContent = '';
-    refreshPrompt();
+    if (settings.hint !== 'cards') { $('cards').hidden = true; $('cards').textContent = ''; }
     renderMeta();
     renderPrev();
     renderActions();
@@ -337,17 +478,27 @@
     if (focus && cur.items[0]) cur.items[0].el.focus({ preventScroll: true });
   }
 
-  function refreshPrompt() {
+  function refreshPrompts() {
     if (!cur) return;
-    $('prompt').textContent = cur.s[settings.mean];
-    $('prompt').lang = settings.mean;
+    cur.lines.forEach(({ line, prompt }) => {
+      const [text, lang] = meaningOf(line);
+      prompt.textContent = text || '…';
+      if (lang) prompt.lang = lang; else prompt.removeAttribute('lang');
+    });
   }
 
   function refreshHints() {
     if (!cur) return;
     const py = settings.mode === 'py';
-    $('slots').classList.toggle('with-hint', settings.hint);
-    cur.items.forEach(it => { it.hint.textContent = settings.hint ? (py ? it.w.hz : it.w.py) : ''; });
+    const cross = settings.hint === 'cross';
+    cur.lines.forEach(l => l.slots.classList.toggle('with-hint', cross));
+    cur.items.forEach(it => { it.hint.textContent = cross ? (py ? it.w.hz : it.w.py) : ''; });
+    const top = settings.hint === 'cards';
+    $('quiz').classList.toggle('cards-top', top);
+    if (state === 'typing') {
+      if (top) renderCards(false);
+      else { $('cards').hidden = true; $('cards').textContent = ''; }
+    }
   }
 
   function stateLabel(g) {
@@ -365,11 +516,11 @@
   }
 
   function renderMeta() {
-    const s = queue[qi];
-    $('levelTag').textContent = s && state !== 'empty' ? `HSK ${s.lv}` : '';
-    $('count').textContent = queue.length && state !== 'empty' ? t('count', { n: qi + 1, t: queue.length }) : '';
-    const ok = queue.filter(x => results[x.id] === 'ok').length;
-    const bad = queue.filter(x => results[x.id] === 'bad').length;
+    const lv = settings.level;
+    $('levelTag').textContent = `HSK ${lv.replace('-', '–')}`;
+    $('count').textContent = queue.length && (state === 'typing' || state === 'checked') ? t('count', { n: qi + 1, t: queue.length }) : '';
+    const ok = queue.filter(x => results[x[0]] === 'ok').length;
+    const bad = queue.filter(x => results[x[0]] === 'bad').length;
     const pct = queue.length ? Math.round(((ok + bad) / queue.length) * 100) : 0;
     $('pct').textContent = queue.length ? `${pct}%` : '';
     $('barFill').style.width = `${pct}%`;
@@ -383,8 +534,9 @@
     if (!prev) { p.hidden = true; return; }
     p.hidden = false;
     p.textContent = '';
-    p.append(span(t('prevLine'), 'lbl'), span(sentenceText(prev.s), '', 'zh-Hans'), ' ',
-      span(prev.ok ? '✓' : '✗', `mark ${prev.ok ? 'ok' : 'bad'}`), ' ', span(prev.s[settings.mean], 'mean', settings.mean));
+    const [mean, lang] = meaningOf(prev.line);
+    p.append(span(t('prevLine'), 'lbl'), span(prev.zh, '', 'zh-Hans'), ' ',
+      span(prev.ok ? '✓' : '✗', `mark ${prev.ok ? 'ok' : 'bad'}`), ' ', span(mean, 'mean', lang || undefined));
   }
 
   function renderActions() {
@@ -430,6 +582,46 @@
     focusSlot(k >= 0 ? k : j);
   }
 
+  // 拼音模式连着打（像输入法那样 woshixuesheng）：这个空格的词已经打完、后面还有字母时，把多出来的送到下一个空格
+  function splitAfterWord(value, syl) {
+    const chars = [...value];
+    let i = 0;
+    const skip = () => { while (i < chars.length && /[\s'’]/.test(chars[i])) i++; };
+    const baseOf = ch => (MARK_INFO[ch] ? MARK_INFO[ch][0] : ch).toLowerCase().replace('v', 'ü');
+    for (const s of syl) {
+      if (s.er) {
+        skip();
+        if (baseOf(chars[i] || '') === 'e' && baseOf(chars[i + 1] || '') === 'r') i += 2;
+        else if (baseOf(chars[i] || '') === 'r') i += 1;
+        else return null;
+      } else {
+        for (const letter of s.b) {
+          skip();
+          if (i >= chars.length || baseOf(chars[i]) !== letter) return null;
+          i++;
+        }
+      }
+      if (i < chars.length && /[0-5]/.test(chars[i])) i++;
+    }
+    const rest = chars.slice(i).join('');
+    if (!rest || !/^[a-zA-ZüÜ]/.test(rest)) return null;
+    return [chars.slice(0, i).join(''), rest];
+  }
+
+  function overflowPy(i) {
+    const items = cur.items;
+    let j = i;
+    for (;;) {
+      const it = items[j];
+      const parts = splitAfterWord(it.el.value, it.w.syl);
+      const k = nextOpen(j);
+      if (!parts || k < 0) return j;
+      it.el.value = parts[0];
+      items[k].el.value = liveConvert(parts[1]) + items[k].el.value;
+      j = k;
+    }
+  }
+
   // 汉字模式：一次打出的字比这个词多时，把多出来的字排到后面的空格
   function spillHz(i) {
     const items = cur.items;
@@ -448,25 +640,27 @@
 
   function handleInput(i) {
     const it = cur.items[i];
-    const el = it.el;
+    const input = it.el;
     if (settings.mode === 'py') {
-      if (/\s/.test(el.value)) { distributePy(i); return; }
-      const v = el.value;
+      if (/\s/.test(input.value)) { distributePy(i); return; }
+      const v = input.value;
       const conv = liveConvert(v);
       if (conv !== v) {
-        const caret = liveConvert(v.slice(0, el.selectionStart)).length;
-        el.value = conv;
-        try { el.setSelectionRange(caret, caret); } catch (e) { /* 忽略 */ }
+        const caret = liveConvert(v.slice(0, input.selectionStart)).length;
+        input.value = conv;
+        try { input.setSelectionRange(caret, caret); } catch (e) { /* 忽略 */ }
       }
+      const last = overflowPy(i);
+      if (last !== i) focusSlot(last);
       return;
     }
-    if (/\s/.test(el.value)) {
-      el.value = el.value.replace(/\s+/g, '');
+    if (/\s/.test(input.value)) {
+      input.value = input.value.replace(/\s+/g, '');
       const k = nextOpen(i);
       if (k >= 0) focusSlot(k);
       return;
     }
-    if (/[A-Za-z]/.test(el.value) || !hasHan(el.value)) return;
+    if (/[A-Za-z]/.test(input.value) || !hasHan(input.value)) return;
     const last = spillHz(i);
     const lit = cur.items[last];
     const k = nextOpen(last);
@@ -496,7 +690,7 @@
   }
 
   function nudge() {
-    const s = $('slots');
+    const s = $('lines');
     s.classList.remove('nudge');
     void s.offsetWidth;
     s.classList.add('nudge');
@@ -514,7 +708,7 @@
     const grades = items.map(grade);
     const allOk = grades.every(g => g === 'ok');
     if (!cur.recorded) {
-      results[cur.s.id] = allOk ? 'ok' : 'bad';
+      results[cur.item.id] = allOk ? 'ok' : 'bad';
       cur.recorded = true;
       cur.firstOk = allOk;
     }
@@ -530,17 +724,18 @@
 
   function showGrades() {
     const py = settings.mode === 'py';
-    $('slots').classList.add('checked');
+    cur.lines.forEach(l => l.slots.classList.add('checked'));
     cur.items.forEach((it, k) => {
       const g = lastGrades[k];
       it.slot.classList.remove('ok', 'tone', 'bad', 'shown');
       it.slot.classList.add(g === 'ok' ? 'ok' : g === 'tone' ? 'tone' : 'bad');
       if (g === 'shown') it.slot.classList.add('shown');
+      it.slot.classList.toggle('focus', it.w.hz === cur.item.head);
       it.el.readOnly = true;
       it.ans.textContent = '';
       if (py) {
-        it.ans.append(span(it.w.hz, '', 'zh-Hans'));
-        if (g !== 'ok' && g !== 'shown') it.ans.append(span(it.w.py, '', PY_TAG));
+        // 不写声调也算对，所以提交后每个词都显示带声调的拼音
+        it.ans.append(span(it.w.hz, '', 'zh-Hans'), span(it.w.py, '', PY_TAG));
       } else {
         if (g !== 'ok' && g !== 'shown') it.ans.append(span(it.w.hz, '', 'zh-Hans'));
         it.ans.append(span(it.w.py, '', PY_TAG));
@@ -559,22 +754,33 @@
     if (!py && typed.some(v => /[A-Za-z]/.test(v))) text += ` ${t('imeHint')}`;
     fb.textContent = text;
     fb.classList.toggle('good', ok === n);
-    renderCards();
+
+    const head = cur.item.head;
+    const e = DATA[settings.level].words[head];
+    const f = $('focus');
+    f.textContent = '';
+    const b = document.createElement('b');
+    b.lang = 'zh-Hans';
+    b.textContent = head;
+    f.append(span(t('focusWord')), b);
+    if (e && e[0]) f.append(' ', span(e[0], '', PY_TAG));
+    f.hidden = false;
+    renderCards(true);
   }
 
-  function renderCards() {
+  function renderCards(graded) {
     const box = $('cards');
     box.textContent = '';
     const idx = UI_IDX[settings.ui];
     cur.items.forEach((it, k) => {
-      const g = lastGrades[k];
+      const g = graded ? lastGrades[k] : null;
       const card = document.createElement('div');
-      card.className = `card ${g === 'ok' ? 'ok' : g === 'tone' ? 'tone' : 'bad'}`;
+      card.className = 'card' + (g ? (g === 'ok' ? ' ok' : g === 'tone' ? ' tone' : ' bad') : '') + (it.w.hz === cur.item.head ? ' focus' : '');
       card.append(
         span(POS[it.w.pos] ? POS[it.w.pos][idx] : '', 'pos'),
         span(it.w.hz, 'hz', 'zh-Hans'),
         span(it.w.py, 'py', PY_TAG),
-        span(it.w.gloss[settings.mean], 'gl', settings.mean),
+        span(it.w.gloss[settings.mean] || it.w.gloss[settings.mean === 'en' ? 'ko' : 'en'] || '', 'gl', settings.mean),
       );
       box.append(card);
     });
@@ -585,7 +791,7 @@
     if (state !== 'checked') return;
     state = 'typing';
     cur.items.forEach((it, k) => {
-      it.slot.classList.remove('ok', 'tone', 'bad', 'shown');
+      it.slot.classList.remove('ok', 'tone', 'bad', 'shown', 'focus');
       it.ans.textContent = '';
       it.el.readOnly = false;
       it.revealed = false;
@@ -593,9 +799,10 @@
     });
     const firstMiss = lastGrades.findIndex(g => g !== 'ok');
     lastGrades = null;
-    $('slots').classList.remove('checked');
+    cur.lines.forEach(l => l.slots.classList.remove('checked'));
     refreshSlotLabels();
-    $('cards').hidden = true;
+    $('focus').hidden = true;
+    refreshHints();
     $('feedback').textContent = '';
     $('feedback').classList.remove('good');
     renderActions();
@@ -604,15 +811,15 @@
 
   // ---------- 换题 ----------
   function leave() {
-    prev = cur && cur.recorded ? { s: cur.s, ok: cur.firstOk } : null;
+    prev = cur && cur.recorded ? { zh: cur.item.lines.map(l => l.zh).join(' '), line: cur.item.lines[0], ok: cur.firstOk } : null;
   }
   function next() {
-    if (!queue.length) return;
+    if (!queue.length || !cur) return;
     leave();
     if (qi < queue.length - 1) { qi++; renderQuestion(); } else showDone(false);
   }
   function back() {
-    if (qi <= 0) return;
+    if (qi <= 0 || !cur) return;
     leave();
     qi--;
     renderQuestion();
@@ -626,13 +833,15 @@
     $('done').hidden = false;
     renderMeta();
     renderPrev();
-    const ok = queue.filter(x => results[x.id] === 'ok').length;
-    const bad = queue.filter(x => results[x.id] === 'bad').length;
-    $('doneTitle').textContent = empty ? t('noWrong') : t('done');
+    const lv = settings.level;
+    const ok = queue.filter(x => results[x[0]] === 'ok').length;
+    const bad = queue.filter(x => results[x[0]] === 'bad').length;
+    $('doneTitle').textContent = empty ? t('noWrong', { lv }) : t('done', { lv });
     $('doneSum').textContent = empty ? '' : t('doneSum', { ok, bad });
     $('btnRestart').hidden = empty;
     $('btnPracticeWrong').hidden = settings.onlyWrong || !bad;
     $('btnShowAll').hidden = !settings.onlyWrong;
+    $('btnRetryLoad').hidden = true;
     $('doneTitle').focus();
   }
 
@@ -640,17 +849,17 @@
   document.addEventListener('keydown', e => {
     if (e.isComposing || e.keyCode === 229 || dlg.open) return;
     if (e.altKey || e.ctrlKey || e.metaKey) return;
-    const el = e.target;
-    const inSlot = el.classList && el.classList.contains('slot-in');
+    const target = e.target;
+    const inSlot = target.classList && target.classList.contains('slot-in');
     if (state === 'checked') {
-      if ((e.key === 'Enter' || e.key === ' ') && (inSlot || el === document.body)) {
+      if ((e.key === 'Enter' || e.key === ' ') && (inSlot || target === document.body)) {
         e.preventDefault();
         if (!e.repeat) next();
       }
       return;
     }
     if (state !== 'typing' || !inSlot) return;
-    const i = +el.dataset.i;
+    const i = +target.dataset.i;
     const n = cur.items.length;
     switch (e.key) {
       case 'Enter':
@@ -663,13 +872,13 @@
         if (i < n - 1) focusSlot(i + 1); else check();
         break;
       case 'Backspace':
-        if ((el.readOnly || el.value === '') && i > 0) { e.preventDefault(); focusSlot(i - 1); }
+        if ((target.readOnly || target.value === '') && i > 0) { e.preventDefault(); focusSlot(i - 1); }
         break;
       case 'ArrowLeft':
-        if (el.selectionStart === 0 && el.selectionEnd === 0 && i > 0) { e.preventDefault(); focusSlot(i - 1); }
+        if (target.selectionStart === 0 && target.selectionEnd === 0 && i > 0) { e.preventDefault(); focusSlot(i - 1); }
         break;
       case 'ArrowRight':
-        if (el.selectionStart === el.value.length && i < n - 1) { e.preventDefault(); focusSlot(i + 1, true); }
+        if (target.selectionStart === target.value.length && i < n - 1) { e.preventDefault(); focusSlot(i + 1, true); }
         break;
       case 'Escape':
         e.preventDefault();
@@ -679,18 +888,18 @@
     }
   });
 
-  const slotsEl = $('slots');
-  slotsEl.addEventListener('input', e => {
+  const linesEl = $('lines');
+  linesEl.addEventListener('input', e => {
     if (!e.target.classList.contains('slot-in') || state !== 'typing' || e.isComposing) return;
     handleInput(+e.target.dataset.i);
   });
-  slotsEl.addEventListener('compositionend', e => {
-    const el = e.target;
-    if (!el.classList.contains('slot-in')) return;
+  linesEl.addEventListener('compositionend', e => {
+    const input = e.target;
+    if (!input.classList.contains('slot-in')) return;
     // 有的浏览器先发 input 再发 compositionend，这里补一次
-    setTimeout(() => { if (state === 'typing' && document.activeElement === el) handleInput(+el.dataset.i); }, 0);
+    setTimeout(() => { if (state === 'typing' && document.activeElement === input) handleInput(+input.dataset.i); }, 0);
   });
-  slotsEl.addEventListener('focusin', e => {
+  linesEl.addEventListener('focusin', e => {
     if (cur && e.target.classList.contains('slot-in')) cur.focus = +e.target.dataset.i;
   });
 
@@ -705,9 +914,11 @@
     const i = cur.items[cur.focus] && !cur.items[cur.focus].revealed ? cur.focus : cur.items.findIndex(it => !it.revealed);
     reveal(i);
   });
-  $('btnRestart').addEventListener('click', () => { qi = 0; renderQuestion(); });
+  $('btnRestart').addEventListener('click', () => { prev = null; qi = 0; renderQuestion(); });
   $('btnPracticeWrong').addEventListener('click', () => { settings.onlyWrong = true; save(); start(null, true); });
   $('btnShowAll').addEventListener('click', () => { settings.onlyWrong = false; save(); start(null, true); });
+  $('btnRetryLoad').addEventListener('click', () => start(positions[settings.level], true));
+  $('levelTag').addEventListener('click', () => { syncForm(); dlg.showModal(); });
 
   document.querySelectorAll('#modeSeg button').forEach(b => b.addEventListener('click', () => {
     if (settings.mode === b.dataset.mode) return;
@@ -725,9 +936,11 @@
   function refreshAll() {
     applyI18n();
     if (state === 'done' || state === 'empty') { showDone(state === 'empty'); return; }
+    if (state === 'error') { showError(settings.level); return; }
+    if (state === 'loading') { showLoading(settings.level); return; }
     renderMeta();
     renderPrev();
-    refreshPrompt();
+    refreshPrompts();
     refreshHints();
     if (state === 'checked') showGrades(); else refreshSlotLabels();
   }
@@ -735,33 +948,32 @@
   // ---------- 设置 ----------
   function syncForm() {
     form.level.value = settings.level;
+    form.shuffle.checked = settings.shuffle;
     form.onlyWrong.checked = settings.onlyWrong;
+    form.hint.value = settings.hint;
     form.tone.value = settings.toneReq ? 'req' : 'opt';
-    form.hint.checked = settings.hint;
     form.mean.value = settings.mean;
   }
   $('openSettings').addEventListener('click', () => { syncForm(); dlg.showModal(); });
   form.addEventListener('change', e => {
     const name = e.target.name;
-    if (name === 'level' || name === 'onlyWrong') {
+    if (name === 'level' || name === 'onlyWrong' || name === 'shuffle') {
       settings.level = form.level.value;
       settings.onlyWrong = form.onlyWrong.checked;
-      prev = null;
-      start(null, false);
-    } else if (name === 'tone') {
-      settings.toneReq = form.tone.value === 'req';
-    } else if (name === 'hint') {
-      settings.hint = form.hint.checked;
-      refreshHints();
-    } else if (name === 'mean') {
-      settings.mean = form.mean.value;
-      refreshAll();
+      settings.shuffle = form.shuffle.checked;
+      save();
+      start(name === 'level' ? positions[settings.level] : null, false);
+      return;
     }
+    if (name === 'tone') settings.toneReq = form.tone.value === 'req';
+    else if (name === 'hint') { settings.hint = form.hint.value; refreshHints(); }
+    else if (name === 'mean') { settings.mean = form.mean.value; refreshAll(); }
     save();
   });
   $('btnReset').addEventListener('click', () => {
     if (!window.confirm(t('resetAsk'))) return;
     Object.keys(results).forEach(k => { delete results[k]; });
+    Object.keys(positions).forEach(k => { delete positions[k]; });
     prev = null;
     save();
     start(null, false);
@@ -773,5 +985,5 @@
 
   // ---------- 开始 ----------
   applyI18n();
-  start(saved.pos, true);
+  start(positions[settings.level], true);
 })();
