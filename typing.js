@@ -109,7 +109,7 @@
   const LETTERS = 'a-zA-ZüÜ' + Object.keys(MARK_INFO).join('');
   const RUN_DIGIT = new RegExp(`([${LETTERS}]+)([0-5])`, 'g');
   // 一串字母末尾的那个音节（声母 + 韵腹 + 韵尾）
-  const LAST_SYL = /(?:zh|ch|sh|[bpmfdtnlgkhjqxrzcsyw])?[aeiouü]+(?:ng|n|r)?$/;
+  const LAST_SYL = /(?:zh|ch|sh|[bpmfdtnlgkhjqxrzcsyw])?[aeiouü]+(?:ng|n)?r?$/;
   // 一、不、个 常见变调都算对
   const LENIENT = { '一': [1, 2, 4], '不': [2, 4], '个': [4, 5] };
 
@@ -654,9 +654,15 @@
         else if (baseOf(chars[i] || '') === 'r') i += 1;
         else return null;
       } else {
+        let prev = '';
         for (const letter of s.b) {
           skip();
-          if (i >= chars.length || baseOf(chars[i]) !== letter) return null;
+          if (i >= chars.length) return null;
+          let base = baseOf(chars[i]);
+          // j q x y 后面的 ü 写作 u：打 xve / xüe 也算同一个词（与判分一致）
+          if (base === 'ü' && letter === 'u' && /^[jqxy]$/.test(prev)) base = 'u';
+          if (base !== letter) return null;
+          prev = letter;
           i++;
         }
       }
