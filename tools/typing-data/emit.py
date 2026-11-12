@@ -61,6 +61,7 @@ for path in sorted(glob.glob(f'{XL}/out/gloss-*.out.json')) + sorted(glob.glob(f
             continue
         rec = {k: (rec.get(k) or '').strip() for k in ('hz', 'py', 'pos', 'en', 'ko')}
         gloss_by_key[(rec['hz'], tl(py_key(rec['py'])))] = rec
+        gloss_by_key[(rec['hz'], py_key(rec['py']))] = rec
         gloss_by_hz.setdefault(rec['hz'], rec)
         report['gloss'] += 1
 
@@ -133,31 +134,69 @@ def with_alt(m, f):
         out.append(x)
     return ' / '.join(out) if out else v
 
+def load_map(name):
+    try:
+        v = json.load(open(f'{XL}/out/{name}', encoding='utf-8'))
+        return v if isinstance(v, dict) else {}
+    except Exception:
+        return {}
+DICT_PYFIX = load_map('dict-pyfix.json')        # {"汉字|错拼音": "对拼音"}   词表里的声调笔误
+DICT_OVERRIDE = load_map('dict-override.json')  # {"汉字|拼音": {pos, en, ko}}  润色过的词卡
 by_hz = collections.defaultdict(list)
 for m in A['dictionary']:
+    k = m['hz'] + '|' + py_key(m['py'])
+    if k in DICT_PYFIX:
+        m['py'] = DICT_PYFIX[k]
+        report['dict-pyfix'] += 1
+        k = m['hz'] + '|' + py_key(m['py'])
+    ov = DICT_OVERRIDE.get(k) or DICT_OVERRIDE.get(m['hz'] + '|' + py_key(m['py'].split('/')[0]))
+    if ov:
+        for f in ('pos', 'en', 'ko'):
+            if ov.get(f):
+                m[f] = ov[f]
+        m['alt'] = {}
+        report['dict-override'] += 1
     m['_pos'] = pos_code(m.get('pos'), m.get('pos_en'))
     m['en'], m['ko'] = with_alt(m, 'en'), with_alt(m, 'ko')
     by_hz[m['hz']].append(m)
 
-def resolve(hz, syls):
+SANDHI = {'一', '不'}
+tone_mismatch = collections.Counter()
+tone_example = {}
+def same_py(a, b, hz):
+    if a == b:
+        return True
+    return hz in SANDHI and tl(a) == tl(b)
+
+def resolve(hz, syls, example=''):
     pk = py_key(''.join(syls))
     t = tl(pk)
     ms = by_hz.get(hz, [])
     for m in ms:
-        if py_key(m['py']) == pk:
+        if any(same_py(py_key(alt), pk, hz) for alt in m['py'].split('/')):
             return m
+    g = gloss_by_key.get((hz, pk))
+    if g:
+        return {'hz': hz, 'py': g['py'] or ''.join(syls), '_pos': pos_code(g['pos']), 'en': g['en'], 'ko': g['ko'], '_agent': True}
     for m in ms:
-        if tl(py_key(m['py'])) == t:
+        if any(tl(py_key(alt)) == t for alt in m['py'].split('/')):
+            # 同字同音不同调：词表只有另一个读音的释义，先用着，另外收集起来补
+            tone_mismatch[(hz, pk)] += 1
+            tone_example.setdefault((hz, pk), example)
             return m
-    if len(ms) == 1:
-        return ms[0]
     g = gloss_by_key.get((hz, t)) or gloss_by_hz.get(hz)
     if g:
         return {'hz': hz, 'py': g['py'] or ''.join(syls), '_pos': pos_code(g['pos']), 'en': g['en'], 'ko': g['ko'], '_agent': True}
-    return ms[0] if ms else None
+    if ms:
+        tone_mismatch[(hz, pk)] += 1
+        tone_example.setdefault((hz, pk), example)
+        return ms[0]
+    return None
 
-# ---------------- proper nouns: capitalised somewhere other than sentence start ----------------
-proper = set(m['hz'] for m in A['dictionary'] if re.match(r'[A-ZĀÁǍÀĒÉĚÈŌÓǑÒ]', m['py'] or ''))
+# ---------------- 专名大小写 ----------------
+# 词表里首字母大写的词，以及语料里非句首位置多数写成大写的词（北京、王），句首时也大写；
+# 其他词句首一律小写，非句首保留原文写法（小王 的 Xiǎo 大写、小猫 的 xiǎo 小写）
+cap_count = collections.defaultdict(lambda: [0, 0])
 for it in A['items']:
     for l in it['lines']:
         initial = True
@@ -166,15 +205,19 @@ for it in A['items']:
                 if w[0] in SENT_END:
                     initial = True
                 continue
-            if not initial and w[1][0][:1].isupper():
-                proper.add(w[0])
+            if not initial:
+                cap_count[w[0]][0 if w[1][0][:1].isupper() else 1] += 1
             initial = False
+proper = set(m['hz'] for m in A['dictionary'] if re.match(r'[A-ZĀÁǍÀĒÉĚÈŌÓǑÒ]', m['py'] or ''))
+proper |= {hz for hz, (c, l) in cap_count.items() if c >= 1 and c >= 0.6 * (c + l)}
 
-def disp_syl(hz, syls):
-    out = [s.lower() for s in syls]
-    if hz in proper and out:
-        out[0] = out[0][:1].upper() + out[0][1:]
-    return out
+def disp_syl(hz, syls, initial=False):
+    if initial:
+        out = [s.lower() for s in syls]
+        if hz in proper:
+            out[0] = out[0][:1].upper() + out[0][1:]
+        return out
+    return [s[:1] + s[1:].lower() for s in syls]
 
 def join_py(syls):
     return ''.join(("'" + s) if k and re.match(r'[aeoāáǎàēéěèōóǒò]', s, re.I) else s for k, s in enumerate(syls))
@@ -201,14 +244,18 @@ for lv in LEVELS:
                 report['line-nothing-to-type'] += 1
                 continue
             toks, pys = [], []
+            initial = True
             for w in l['w']:
                 if len(w) == 1:
                     toks.append(w[0].replace(' ', ''))
+                    if w[0] in SENT_END:
+                        initial = True
                     continue
-                hz, syls = w[0], disp_syl(w[0], w[1])
+                hz, syls = w[0], disp_syl(w[0], w[1], initial)
+                initial = False
                 toks.append(hz)
                 pys.append('-'.join(syls))
-                e = resolve(hz, w[1])
+                e = resolve(hz, w[1], l['zh'])
                 if e is None:
                     missing_gloss[hz] += 1
                     continue
@@ -242,5 +289,9 @@ for lv in LEVELS:
     print(f'HSK{lv:4s} items={len(out_items):5d} dropped={dropped:3d} words={len(words):5d} size={os.path.getsize(path)/1024:7.0f} KB')
 
 print('agent data merged:', dict(report))
+print('heteronym readings without their own gloss:', len(tone_mismatch), sum(tone_mismatch.values()),
+      [(h, p, n) for (h, p), n in tone_mismatch.most_common(12)])
+json.dump([dict(hz=h, py=p, n=n, example=tone_example[(h, p)]) for (h, p), n in tone_mismatch.most_common()],
+          open(f'{XL}/heteronyms.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print('tokens without any gloss:', sum(missing_gloss.values()), 'distinct', len(missing_gloss), missing_gloss.most_common(15))
 json.dump(dict(summary=summary, missing_gloss=missing_gloss.most_common()), open(f'{XL}/emit-report.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

@@ -168,8 +168,14 @@ def align_line(zh, py):
             return None, dict(reason='mixed-fixed', token=t), repairs
         syls, p = [], 0
         for i, r in m:
-            syls.append(core[p:p + len(r)])
+            syl = core[p:p + len(r)]
             p += len(r)
+            # 源文件把 什么 写成 shéme：显示和判分都按标准的 shénme
+            if units[i]['text'] == '什' and r == 'she':
+                syl = syl[:-1] + ('n' if syl[-1] != 'e' and syl[-1] not in 'ēéěè' else '') + ('' if syl[-1] not in 'eēéěè' else '')
+                syl = re.sub(r'([eēéěè])$', lambda mm: mm.group(1) + 'n', core[p - len(r):p])
+                repairs.append(['shéme→shénme', t])
+            syls.append(syl)
         if p != len(core):
             return None, dict(reason='tone-length', token=t), repairs
         words.append([''.join(units[i]['text'] for i, r in m), syls])
@@ -253,6 +259,55 @@ def auto_pinyin(zh):
         i += n
     return ' '.join(toks)
 
+# 源拼音把「为什么」写成 wèi shénme 时会拆成两个词：拼起来等于本题词、或是词表里 ≥3 字的词，就合并
+def merge_tokens(words, head):
+    out, i = [], 0
+    while i < len(words):
+        merged = False
+        if len(words[i]) == 2:
+            for n in (3, 2):
+                if i + n <= len(words) and all(len(w) == 2 for w in words[i:i + n]):
+                    hz = ''.join(w[0] for w in words[i:i + n])
+                    if hz == head or (len(hz) >= 3 and hz in by_hz):
+                        syls = [s for w in words[i:i + n] for s in w[1]]
+                        out.append([hz, syls])
+                        stats['repair:merge-tokens'] += 1
+                        i += n
+                        merged = True
+                        break
+        if not merged:
+            out.append(words[i])
+            i += 1
+    return out
+
+# 例句里声调写错的词（agent 裁定过）：xl/out/token-fix.json = {"汉字|错拼音": "对拼音"}
+try:
+    TOKEN_FIX = json.load(open(OUTDIR + '/out/token-fix.json', encoding='utf-8'))
+except Exception:
+    TOKEN_FIX = {}
+def apply_token_fixes(words):
+    if not TOKEN_FIX:
+        return words
+    out = []
+    for w in words:
+        if len(w) == 2:
+            key = w[0] + '|' + py_key(''.join(w[1]))
+            right = TOKEN_FIX.get(key)
+            if right:
+                core = re.sub(r"['\-\s]", '', norm_py(right))
+                units = [dict(type='han', text=ch, readings=readings(ch)) for ch in w[0]]
+                m = match_token(tl(core), units, 0)
+                if m and len(m) == len(w[0]):
+                    syls, p = [], 0
+                    for i, r in m:
+                        syls.append(core[p:p + len(r)])
+                        p += len(r)
+                    if p == len(core):
+                        w = [w[0], syls]
+                        stats['repair:token-fix'] += 1
+        out.append(w)
+    return out
+
 # ---------------- run ----------------
 stats = collections.Counter()
 failed, unknown = [], collections.OrderedDict()
@@ -272,6 +327,8 @@ for it in d['items']:
             failed.append(dict(id=it['id'], lv=it['lv'], zh=l['zh'], py=l['py'], **err))
             continue
         stats['aligned'] += 1
+        words = merge_tokens(words, it['hz'])
+        words = apply_token_fixes(words)
         l['w'] = words
         if repairs:
             l['repairs'] = repairs
